@@ -35,7 +35,7 @@ function Login(){
 
                 <p>
                         Ainda não tem uma conta? {' '}
-                        <Link to="/Cadastro" className="text-cyan-800 hover:underline">
+                        <Link to="/Register" className="text-cyan-800 hover:underline">
                             Cadastre-se
                         </Link>
                     </p>

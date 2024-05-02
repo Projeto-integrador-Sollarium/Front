@@ -1,7 +1,9 @@
+import HomeImg from '../../assets/Home.png';
+
 function Home(){
     return(
         <>
-            <h1>Home</h1>
+            <img src={HomeImg} alt="Jorge" className='w-5'/>
         </>
     )
 }
