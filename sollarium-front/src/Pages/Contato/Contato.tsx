@@ -1,7 +1,7 @@
 function Contato(){
     return(
-        <div>
-            <h2>Fale Conosco</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold" >
+            <h2 className="text-slate-900">Fale Conosco</h2>
             <p>Entre em contato conosco preenchendo o formulário abaixo.</p>
             <form>
                 <div className="flex flex-col w-full">
@@ -11,7 +11,7 @@ function Contato(){
                         id="none"
                         name="nome"
                         placeholder="Nome"
-                        className="border-2 rounded"
+                        className="border-2 border-slate-700 rounded"
                     />
                 </div>
                 <div className="flex flex-col w-full">
@@ -21,7 +21,7 @@ function Contato(){
                         id="email"
                         name="email"
                         placeholder="Email"
-                        className="border-2 rounded"
+                        className="border-2 border-slate-700 rounded"
                     />
                 </div>
                 <div className="flex flex-col w-full">
@@ -31,11 +31,11 @@ function Contato(){
                         id="assunto"
                         name="assunto"
                         placeholder="Assunto"
-                        className="border-2 rounded"
+                        className="border-2 border-slate-700 rounded"
                     />
                 </div>
                 <div>
-                    <label htmlFor="mensagem">Mensagem </label>
+                    <label htmlFor="mensagem ">Mensagem </label>
                     <textarea></textarea>
                 </div>
                 <div>

@@ -6,6 +6,8 @@ import Contato from './Pages/Contato/Contato';
 import Navbar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './Pages/Login/Login';
+import Cadastro from './Pages/Cadastro/Cadastro';
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
               <Route path="/Home" element={<Home />} />
               <Route path="/Sobre" element={<Sobre />} />
               <Route path="/Contato" element={<Contato />} />
+              <Route path="/Login" element={<Login />}/>
+              <Route path="/Cadastro" element={<Cadastro />}/>
             </Routes>
           </div>
           <Footer />
