@@ -35,7 +35,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     async function handleLogin(userLogin: UserLogin) {
         setIsLoading(true)
         try {
-            await login(`/user/logar`, userLogin, setUser)
+            await login(`/users/login`, userLogin, setUser)
             alert("Usuário logado com sucesso")
             setIsLoading(false)
 

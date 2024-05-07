@@ -1,4 +1,3 @@
-import UserProvider from './Contexts/UserContext';
 
 import './App.css'
 import Home from './Pages/Home/Home';
@@ -10,30 +9,18 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import axios from 'axios';
 
+import { AuthProvider } from './Contexts/AuthContext';
+
 import React, {useState, useEffect} from 'react';
 
-interface User{
-  id: number;
-  name: string;
-}
 
 function App() {
 
-  const [users, setUsers] = useState<User[]>([]);
 
-  useEffect(() => {
-    axios.get<User[]>('https://jsonplaceholder.typicode.com/users')
-    .then(response => {
-      setUsers(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }, []);
 
   return ( 
     <>
-      <UserProvider>
+      <AuthProvider>
 
           <BrowserRouter>
           <Navbar />
@@ -48,7 +35,7 @@ function App() {
           </div>
           <Footer />
         </BrowserRouter>
-      </UserProvider>
+      </AuthProvider>
     </>
   )
 }

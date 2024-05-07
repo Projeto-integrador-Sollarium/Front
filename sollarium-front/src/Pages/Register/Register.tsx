@@ -111,6 +111,20 @@ function Register() {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
                 </div>
+
+                <div className="flex flex-col w-full">
+                    <label htmlFor="user">Confirmar senha</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirmar senha"
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={confirmPassword}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmPassword(e)}
+                    />
+                </div>
+
                 <div className="flex flex-col w-full">
                     <label htmlFor="address">Endereço</label>
                     <input
