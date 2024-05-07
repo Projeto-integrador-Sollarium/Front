@@ -1,9 +1,20 @@
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+
+import { UserContext } from '../../Contexts/UserContext'
+import { Link, useNavigate } from "react-router-dom";
 
 function Login(){
+    const { name, setName } = useContext(UserContext);
+    let navigate = useNavigate()
+
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        navigate('/home')
+    }
+
     return(
         <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
-            <form className="flex justify-center items-center flex-col w-1/2 gap-4">
+            <form onSubmit={handleSubmit} className="flex justify-center items-center flex-col w-1/2 gap-4">
                 <h2 className="text-slate-900 text-5x1">Entrar</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="email">Email</label>
@@ -13,6 +24,8 @@ function Login(){
                         name="email" 
                         placeholder="Email"   
                         className="border-2 border-slate-700 rounded p-2"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
                     />
                 </div>
 

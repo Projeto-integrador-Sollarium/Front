@@ -1,3 +1,5 @@
+import UserProvider from './Contexts/UserContext';
+
 import './App.css'
 import Home from './Pages/Home/Home';
 import Sobre from './Pages/About/About';
@@ -6,12 +8,33 @@ import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import axios from 'axios';
+
+import React, {useState, useEffect} from 'react';
+
+interface User{
+  id: number;
+  name: string;
+}
 
 function App() {
 
+  const [users, setUsers] = useState<User[]>([]);
 
-  return (
+  useEffect(() => {
+    axios.get<User[]>('https://jsonplaceholder.typicode.com/users')
+    .then(response => {
+      setUsers(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }, []);
+
+  return ( 
     <>
+      <UserProvider>
+
           <BrowserRouter>
           <Navbar />
           <div className='min-h-[80vh]'>
@@ -25,8 +48,8 @@ function App() {
           </div>
           <Footer />
         </BrowserRouter>
+      </UserProvider>
     </>
   )
 }
-
 export default App
