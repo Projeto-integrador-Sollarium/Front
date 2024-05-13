@@ -7,22 +7,26 @@ import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import axios from 'axios';
 
 import { AuthProvider } from './Contexts/AuthContext';
 
-import React, {useState, useEffect} from 'react';
+import FormCategories from './Components/Categorias/FormCategories/FormCtegories';
+import ListCategories from './Components/Categorias/ListaCategorias/ListCategories';
+import DeleteCategory from './Components/Categorias/DeleteCategory/DeleteCategory';
+
+
+
 
 
 function App() {
 
 
 
-  return ( 
+  return (
     <>
       <AuthProvider>
 
-          <BrowserRouter>
+        <BrowserRouter>
           <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
@@ -30,7 +34,11 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />}/>
+              <Route path="/login" element={<Login />} />
+              <Route path="/categories" element={<ListCategories />} />
+              <Route path="/registerCategory" element={<FormCategories />} />
+              <Route path="/editCategory/:id" element={<FormCategories />} />
+              <Route path="/deleteCategory/:id" element={<DeleteCategory />} />
             </Routes>
           </div>
           <Footer />
