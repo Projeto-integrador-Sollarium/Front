@@ -16,6 +16,7 @@ import DeleteCategory from './Components/Categorias/DeleteCategory/DeleteCategor
 import ListProducts from './Components/Products/ListProducts/ListProducts';
 import FormProduct from './Components/Products/FormProducts/FormProducts';
 import DeleteProduct from './Components/Products/DeleteProducts/DeleteProducts';
+import Cart from './Pages/Cart/Cart';
 
 
 
@@ -46,6 +47,7 @@ function App() {
               <Route path="/registerProduct/" element={<FormProduct />} />
               <Route path="/editProduct/:id" element={<FormProduct />} />
               <Route path="/deleteProduct/:id" element={<DeleteProduct />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </div>
           <Footer />

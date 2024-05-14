@@ -10,10 +10,8 @@ import ModalProducts from '../ModalProducts/ModalProducts';
 function ListProduct() {
   const [products, setProducts] = useState<Product[]>([]);
 
-  let navigate = useNavigate();
+  const { user } = useContext(AuthContext)
 
-  const { user, handleLogout } = useContext(AuthContext);
-  const token = user.token;
 
   async function findProducts() {
     try {
@@ -26,6 +24,8 @@ function ListProduct() {
   useEffect(() => {
     findProducts();
   }, [products.length]);
+
+  console.log(user)
   return (
     <>
       {products.length === 0 && (
@@ -38,14 +38,21 @@ function ListProduct() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {products.map((products) => (
-          <CardProduct key={products.id} product={products} />
-        ))}
-      </div>
+      <div className='flex flex-col'>
+        <div className="flex justify-center w-full my-4">
+          <div className="container flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.map((products) => (
+                <CardProduct key={products.id} product={products} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </ div >
 
       <div>
-      <ModalProducts/>
+        { user.id === 1 ? < ModalProducts /> : null }
+        
       </div>
     </>
   );
