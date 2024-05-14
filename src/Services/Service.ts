@@ -19,6 +19,11 @@ export const find = async(url: string, setData: Function, header: Object) => {
   setData(response.data)
 }
 
+export const searchProducts = async(url: string, setData: Function) => {
+  const response = await api.get(url)
+  setData(response.data)
+}
+
 export const register = async(url: string, data: Object, setData: Function, header: Object) => {
   const response = await api.post(url, data, header)
   setData(response.data)

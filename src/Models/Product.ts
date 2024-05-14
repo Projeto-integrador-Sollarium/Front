@@ -6,5 +6,6 @@ export default interface Product {
     inventory: number;
     price: number;
     description: string;
+    photo: string;
     category: Category | null;
 }

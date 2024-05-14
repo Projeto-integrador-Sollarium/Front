@@ -13,6 +13,9 @@ import { AuthProvider } from './Contexts/AuthContext';
 import FormCategories from './Components/Categorias/FormCategories/FormCtegories';
 import ListCategories from './Components/Categorias/ListaCategorias/ListCategories';
 import DeleteCategory from './Components/Categorias/DeleteCategory/DeleteCategory';
+import ListProducts from './Components/Products/ListProducts/ListProducts';
+import FormProduct from './Components/Products/FormProducts/FormProducts';
+import DeleteProduct from './Components/Products/DeleteProducts/DeleteProducts';
 
 
 
@@ -39,6 +42,10 @@ function App() {
               <Route path="/registerCategory" element={<FormCategories />} />
               <Route path="/editCategory/:id" element={<FormCategories />} />
               <Route path="/deleteCategory/:id" element={<DeleteCategory />} />
+              <Route path="/products" element={<ListProducts />} />
+              <Route path="/registerProduct/" element={<FormProduct />} />
+              <Route path="/editProduct/:id" element={<FormProduct />} />
+              <Route path="/deleteProduct/:id" element={<DeleteProduct />} />
             </Routes>
           </div>
           <Footer />
