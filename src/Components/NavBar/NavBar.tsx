@@ -30,16 +30,16 @@ function Navbar() {
           </div>
 
           <div className='flex gap-6'>
-            <Link to='/products' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l'>Produtos</Link>
-            <Link to='/Categories' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l'>Categorias</Link>
-            <Link to='/sobre' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l'>Sobre</Link>
-            {user.id === 1 ? <Link to='/registerCategory' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l' >Cadastrar Categoria</Link> : null}
+            <Link to='/products' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-4 rounded-l'>Produtos</Link>
+            <Link to='/Categories' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-4 rounded-l'>Categorias</Link>
+            <Link to='/sobre' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-5 rounded-l'>Sobre</Link>
+            {user.id === 1 ? <Link to='/registerCategory' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-4 rounded-l' >Cadastrar Categoria</Link> : null}
             {user.id === 1 ? < ModalProducts /> : null}
             {user.id !== 0 ?
               <Link to='/cart' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l'>Carrinho [{itemsQuantity}]
                 <ShoppingCart size={28} color="#0a0a0a" weight="bold" onClick={onClickCart} /></Link> : null}
 
-            {user.id === 0 ? <Link to='/login' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l'>Login</Link> : <div className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l' onClick={handleLogout}>Logout</div>}
+            {user.id === 0 ? <Link to='/login' className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-4 rounded-l'>Login</Link> : <div className='bg-cyan-50 hover:bg-gray-400 text-gray-800 font-bold py-6 px-4 rounded-l' onClick={handleLogout}>Logout</div>}
 
           </div>
         </div>
