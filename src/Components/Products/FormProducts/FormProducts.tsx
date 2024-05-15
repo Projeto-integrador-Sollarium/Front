@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContext';
 import Product from '../../../Models/Product';
 import Category from '../../../Models/Category';
 import { find, update, register } from '../../../Services/Service';
-import { toastAlerta } from "../utils/toastAlerta"
+
 
 function FormProduct() {
     let navigate = useNavigate();
@@ -58,7 +58,7 @@ function FormProduct() {
 
     useEffect(() => {
         if (token === '') {
-            toastAlerta('Você precisa estar logado');
+            alert('Você precisa estar logado');
             navigate('/');
         }
     }, [token]);
@@ -67,7 +67,7 @@ function FormProduct() {
         searchCategories();
         if (id !== undefined) {
             findProductByID(id);
-            console.log(category);
+        
 
         }
     }, [id]);
@@ -103,14 +103,14 @@ function FormProduct() {
                         Authorization: token,
                     },
                 });
-                toastAlerta('O produto foi atualizado com sucesso');
+                alert('O produto foi atualizado com sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    toastAlerta('O token expirou, favor logar novamente')
+                    alert('O token expirou, favor logar novamente')
                     handleLogout()
                 } else {
-                    toastAlerta('Erro ao atualizar o Produto');
+                    alert('Erro ao atualizar o Produto');
                 }
             }
         } else {
@@ -121,14 +121,14 @@ function FormProduct() {
                     },
                 });
 
-                toastAlerta('Produto cadastrado com sucesso');
+                alert('Produto cadastrado com sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    toastAlerta('O token expirou, favor logar novamente')
+                    alert('O token expirou, favor logar novamente')
                     handleLogout()
                 } else {
-                    toastAlerta('Erro ao cadastrar o Produto');
+                    alert('Erro ao cadastrar o Produto');
                 }
             }
         }

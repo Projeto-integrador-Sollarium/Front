@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../../Contexts/AuthContext'
 import Product from '../../../Models/Product'
 import { find, remove } from '../../../Services/Service'
-import { toastAlerta } from "../utils/toastAlerta"
+import { toastAlerta } from '../../../utils/toastAlerta'
+
 
 function DeleteProduct() {
   const [product, setProduct] = useState<Product>({} as Product)
@@ -24,7 +25,7 @@ function DeleteProduct() {
       })
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        toastAlerta('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -32,7 +33,7 @@ function DeleteProduct() {
 
   useEffect(() => {
     if (token === '') {
-      toastAlerta('Você precisa estar logado')
+      toastAlerta('Você precisa estar logado', 'info')
       navigate('/login')
     }
   }, [token])
@@ -55,10 +56,10 @@ function DeleteProduct() {
         }
       })
 
-      toastAlerta('Produto apagado com sucesso')
+      toastAlerta('Produto apagado com sucesso', 'info')
 
     } catch (error) {
-      toastAlerta('Erro ao apagar o Produto do Banco')
+      toastAlerta('Erro ao apagar o Produto do Banco', 'info')
     }
 
     retornar()

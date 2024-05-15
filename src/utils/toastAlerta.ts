@@ -11,7 +11,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: true,
                 progress: undefined,
                 theme: 'colored',
-                transition: 'bounce',
+              
             });
             break;
 
@@ -25,7 +25,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: true,
                 progress: undefined,
                 theme: 'colored',
-                transition: 'bounce',
+                
             });
             break;
 
@@ -39,7 +39,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: true,
                 progress: undefined,
                 theme: 'colored',
-                transition: 'bounce',
+                
             });
             break;
 
@@ -53,7 +53,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: true,
                 progress: undefined,
                 theme: 'colored',
-                transition: 'bounce',
+               
             });
             break;
     }

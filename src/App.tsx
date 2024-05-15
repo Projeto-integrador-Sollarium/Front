@@ -17,8 +17,9 @@ import ListProducts from './Components/Products/ListProducts/ListProducts';
 import FormProduct from './Components/Products/FormProducts/FormProducts';
 import DeleteProduct from './Components/Products/DeleteProducts/DeleteProducts';
 import Cart from './Pages/Cart/Cart';
-
-
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ProductPage from './Pages/Product/Product';
 
 
 
@@ -29,7 +30,19 @@ function App() {
   return (
     <>
       <AuthProvider>
-
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition={Bounce}
+          />
         <BrowserRouter>
           <Navbar />
           <div className='min-h-[80vh]'>
@@ -48,6 +61,7 @@ function App() {
               <Route path="/editProduct/:id" element={<FormProduct />} />
               <Route path="/deleteProduct/:id" element={<DeleteProduct />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
           </div>
           <Footer />

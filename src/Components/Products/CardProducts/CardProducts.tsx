@@ -14,7 +14,7 @@ function CardProduct({ product }: CardProductProps) {
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img src={product.photo} alt="Product Photo" />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{product.name}</div>
+        <Link to={`/product/${product.id}`} className="font-bold text-xl mb-2">{product.name}</Link>
         <p className="text-gray-700 text-base">{product.description}</p>
         <p>R${product.price}</p>
       </div>
