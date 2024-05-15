@@ -22,7 +22,7 @@ function Sobre(){
                             </p>
                     </div>
                     <div className="justify-center py-10">
-                        <h2 className='font-bold text-center'>Nossa Equipe!</h2>
+                        <h2 className='font-bold text-center text-4xl py-2'>Nossa Equipe!</h2>
                         <hr className="border-slate-950 rounded w-full"/>
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                             <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center'>

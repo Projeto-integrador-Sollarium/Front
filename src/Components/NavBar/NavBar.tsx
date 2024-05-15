@@ -35,10 +35,14 @@ function Navbar() {
             <Link to='/sobre' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-5 rounded-l'>Sobre</Link>
             {user.id === 1 ? <Link to='/registerCategory' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' >Cadastrar Categoria</Link> : null}
             {user.id === 1 ? < ModalProducts /> : null}
-            {user.id !== 0 ?
-              <Link to='/cart' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-2 px-4 rounded-l'> 
-                [{itemsQuantity}] <ShoppingCart size={28} color="white" weight="bold" onClick={onClickCart} />
-              </Link> : null}
+            <div className=' relative bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue rounded-l py-6 px-1'>
+                {user.id !== 0 ?
+                  <Link to='/cart' className=' text-white font-bold '> 
+                    <span className="absolute top-0 right-0 mt-3 -mr-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center">{itemsQuantity}</span>  
+                    <ShoppingCart size={28} color="white" weight="bold" onClick={onClickCart} />
+                  </Link> : null}
+            </div>
+            
 
             {user.id === 0 ? <Link to='/login' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Login</Link> : <div className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' onClick={handleLogout}>Logout</div>}
 
