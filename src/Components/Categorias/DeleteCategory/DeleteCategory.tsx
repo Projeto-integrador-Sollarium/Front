@@ -60,7 +60,7 @@ function DeleteCategory() {
             toastAlerta('Categoria apagada com sucesso', 'info')
 
         } catch (error) {
-            toastAlerta('Erro ao apagar a Categoria', 'info')
+            toastAlerta('Erro ao apagar a Categoria', 'erro')
         }
 
         turnBack()

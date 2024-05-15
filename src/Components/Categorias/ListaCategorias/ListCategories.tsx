@@ -23,7 +23,7 @@ function ListCategories() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        toastAlerta('O token expirou, favor logar novamente', 'info')
+        toastAlerta('O token expirou, favor logar novamente', 'erro')
         handleLogout()
       }
     }
@@ -31,7 +31,7 @@ function ListCategories() {
 
   useEffect(() => {
     if (token === '') {
-      toastAlerta('Você precisa estar logado', 'info');
+      toastAlerta('Você precisa estar logado', 'erro');
       navigate('/login');
     }
   }, [token]);

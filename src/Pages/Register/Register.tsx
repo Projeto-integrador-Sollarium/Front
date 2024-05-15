@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import User from '../../Models/User'
 import { registerUser } from '../../Services/Service'
 import './Register.css'
-import { toastAlerta } from '../../utils/toastAlerta'
+
 
 
 function Register() {
@@ -60,10 +60,10 @@ function Register() {
 
       try {
         await registerUser(`/users/register`, user, setUserResponse)
-        toastAlerta('Usuário cadastrado com sucesso', 'info')
+        toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
 
       } catch (error) {
-        toastAlerta('Erro ao cadastrar o Usuário', 'info')
+        toastAlerta('Erro ao cadastrar o Usuário', 'erro')
       }
 
     } else {

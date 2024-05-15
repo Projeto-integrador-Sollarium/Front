@@ -4,7 +4,6 @@ import UserLogin from "../Models/UserLogin"
 import { login } from "../Services/Service"
 import Product from "../Models/Product"
 import { toastAlerta } from "../utils/toastAlerta"
-
 interface AuthContextProps {
     user: UserLogin
     handleLogout(): void
@@ -42,28 +41,39 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true)
         try {
             await login(`/users/login`, userLogin, setUser)
-            toastAlerta("Usuário logado com sucesso")
+            toastAlerta('Usuário Logado com sucesso', 'sucesso')
             setIsLoading(false)
 
         } catch (error) {
             console.log(error)
-            toastAlerta("Dados do usuário inconsistentes")
+            toastAlerta("Dados do usuário inconsistentes", 'erro')
             setIsLoading(false)
         }
     }
 
     function handleLogout() {
-        setUser({
-            id: 0,
-            name: "",
-            email: "",
-            password: "",
-            adress: "",
-            phone: "",
-            photo: "",
-            token: ""
-        })
+        setIsLoading(true);
+        try {
+            setUser({
+                id: 0,
+                name: "",
+                email: "",
+                password: "",
+                address: "",
+                phone: "",
+                photo: "",
+                token: ""
+            });
+
+            toastAlerta('Usuário deslogado com sucesso', 'success');
+        } catch (error) {
+            console.log(error);
+            toastAlerta("Erro ao fazer logout", 'error');
+        } finally {
+            setIsLoading(false);
+        }
     }
+ 
 
     const [items, setItems] = useState<Product[]>([])
 
@@ -89,7 +99,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function cleanCart() {
-        toastAlerta("Compra Efetuada com Sucesso")
+        toastAlerta("Compra Efetuada com Sucesso", 'sucesso')
         setItems([])
     }
 

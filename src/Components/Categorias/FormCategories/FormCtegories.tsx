@@ -51,7 +51,7 @@ function FormCategories() {
           }
         })
 
-        toastAlerta('Categoria atualizada com sucesso', 'info')
+        toastAlerta('Categoria atualizada com sucesso', 'sucesso')
         turnBack()
 
       } catch (error: any) {
@@ -59,7 +59,7 @@ function FormCategories() {
           toastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          toastAlerta('Erro ao atualizar a Categoria', 'info')
+          toastAlerta('Erro ao atualizar a Categoria', 'erro')
         }
 
       }
@@ -72,14 +72,14 @@ function FormCategories() {
           }
         })
 
-        toastAlerta('Categoria cadastrada com sucesso', 'info')
+        toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
           toastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          toastAlerta('Erro ao cadastrar Categoria', 'info')
+          toastAlerta('Erro ao cadastrar Categoria', 'erro')
         }
       }
     }

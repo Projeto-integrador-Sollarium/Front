@@ -30,19 +30,8 @@ function App() {
   return (
     <>
       <AuthProvider>
-      <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-          transition={Bounce}
-          />
+      <ToastContainer/>
+
         <BrowserRouter>
           <Navbar />
           <div className='min-h-[80vh]'>
