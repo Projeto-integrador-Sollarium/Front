@@ -3,7 +3,7 @@ export default interface UserLogin {
     name: string;
     email: string;
     password: string;
-    adress: string;
+    address: string;
     phone: string;
     photo: string;
     token: string;

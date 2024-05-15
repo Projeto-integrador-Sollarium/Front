@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Dna } from 'react-loader-spinner';
+import { Grid } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
 import { find } from '../../../Services/Service';
@@ -42,13 +42,15 @@ function ListCategories() {
   return (
     <>
       {categories.length === 0 && (
-        <Dna
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
+        <Grid
+        visible={true}
+        height="80"
+        width="80"
+        color="#bg-escuro-dark-pastel-blue"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass="grid-wrapper"
         />
       )}
       <div className="flex justify-center w-full my-4">

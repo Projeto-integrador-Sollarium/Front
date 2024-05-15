@@ -20,6 +20,7 @@ import Cart from './Pages/Cart/Cart';
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductPage from './Pages/Product/Product';
+import CategoryDescription from './Pages/CategoryDescription/CategriDescription';
 
 
 
@@ -51,6 +52,7 @@ function App() {
               <Route path="/deleteProduct/:id" element={<DeleteProduct />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="/category/:id" element={<CategoryDescription />} />
             </Routes>
           </div>
           <Footer />

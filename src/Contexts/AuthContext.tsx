@@ -4,6 +4,7 @@ import UserLogin from "../Models/UserLogin"
 import { login } from "../Services/Service"
 import Product from "../Models/Product"
 import { toastAlerta } from "../utils/toastAlerta"
+
 interface AuthContextProps {
     user: UserLogin
     handleLogout(): void
@@ -29,7 +30,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         name: "",
         email: "",
         password: "",
-        adress: "",
+        address: "",
         phone: "",
         photo: "",
         token: ""
@@ -41,7 +42,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true)
         try {
             await login(`/users/login`, userLogin, setUser)
-            toastAlerta('Usuário Logado com sucesso', 'sucesso')
+            toastAlerta("Usuário logado com sucesso", 'sucesso')
             setIsLoading(false)
 
         } catch (error) {
@@ -52,28 +53,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function handleLogout() {
-        setIsLoading(true);
-        try {
-            setUser({
-                id: 0,
-                name: "",
-                email: "",
-                password: "",
-                address: "",
-                phone: "",
-                photo: "",
-                token: ""
-            });
-
-            toastAlerta('Usuário deslogado com sucesso', 'success');
-        } catch (error) {
-            console.log(error);
-            toastAlerta("Erro ao fazer logout", 'error');
-        } finally {
-            setIsLoading(false);
-        }
+        setUser({
+            id: 0,
+            name: "",
+            email: "",
+            password: "",
+            address: "",
+            phone: "",
+            photo: "",
+            token: ""
+        })
     }
- 
 
     const [items, setItems] = useState<Product[]>([])
 
@@ -81,12 +71,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     // Essa sintaxe guarda as info anteriores do State e atualiza com os novos dados(objetos)
     function addProduct(product: Product) {
-        setItems(state => [...state, product])
+        if(user.id === undefined){
+            handleLogout
+        }else{
+            setItems(state => [...state, product])
+        }
+        
     }
 
     // Remove a quantidade de um produto especifico
     function removeProduct(productId: number) {
-
+        if(user.id === 0){
+            handleLogout()
+        }else{
         // O findIndex() verifica se o ID do produto informado consta no Array, e pega a posição/indice desse item no Array
         const indice = items.findIndex(items => items.id === productId) 
         let newCart = [...items]   // Faz uma cópia do Carrinho anterior, apenas como variavel auxiliar
@@ -97,9 +94,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
             setItems(newCart)  // Atualiza o Carrinho
         }
     }
+    }
 
     function cleanCart() {
-        toastAlerta("Compra Efetuada com Sucesso", 'sucesso')
+        toastAlerta("Compra Efetuada com Sucesso", "sucesso")
         setItems([])
     }
 

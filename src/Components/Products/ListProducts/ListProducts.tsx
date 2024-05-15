@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Dna } from 'react-loader-spinner';
+import { Grid } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
 import Product from '../../../Models/Product';
 import CardProduct from '../CardProducts/CardProducts';
 import { searchProducts } from '../../../Services/Service';
 import ModalProducts from '../ModalProducts/ModalProducts';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListProduct() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -29,13 +30,15 @@ function ListProduct() {
   return (
     <>
       {products.length === 0 && (
-        <Dna
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
+        <Grid
+        visible={true}
+        height="80"
+        width="80"
+        color="#bg-escuro-dark-pastel-blue"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass="grid-wrapper"
         />
       )}
       <div className='flex flex-col'>
@@ -50,10 +53,7 @@ function ListProduct() {
         </div>
       </ div >
 
-      <div>
-        { user.id === 1 ? < ModalProducts /> : null }
-        
-      </div>
+      
     </>
   );
 }

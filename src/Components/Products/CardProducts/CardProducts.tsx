@@ -7,6 +7,7 @@ interface CardProductProps {
   product: Product
 }
 
+
 function CardProduct({ product }: CardProductProps) {
   const { addProduct, removeProduct, user } = useContext(AuthContext)
 
@@ -24,7 +25,8 @@ function CardProduct({ product }: CardProductProps) {
 
         {user.id === 1 ? <Link to={`/editProduct/${product.id}`} className='bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded'>
           <button>Editar</button>
-        </Link> : <button className="bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded"
+        </Link> :
+         <button className="bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded"
           onClick={() => addProduct(product)}>Adicionar</button> }
         
         {user.id === 1 ? <Link to={`/deleteProduct/${product.id}`} className='bg-vermelho-claro hover:bg-vermelho-escuro text-white font-extrabold py-2 px-4 rounded'>
