@@ -3,56 +3,59 @@ import { toast } from 'react-toastify';
 export function toastAlerta(mensagem: string, tipo: string) {
     switch (tipo) {
         case 'sucesso':
-            toast.success(mensagem, {
-                position: 'top-right',
-                autoClose: 2000,
+            toast('🎉 Sucesso!Tudo pronto para brilhar como um sol!', {
+                position: 'bottom-right',
+                autoClose: 4973,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: 'colored',
+                pauseOnHover: true,
+                draggable: true,
                 progress: undefined,
+                theme: 'colored',
+                transition: 'bounce',
             });
             break;
 
         case 'info':
-            toast.info(mensagem, {
-                position: 'top-right',
-                autoClose: 2000,
+            toast('🌞 Informação!', {
+                position: 'bottom-right',
+                autoClose: 4973,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: 'colored',
+                pauseOnHover: true,
+                draggable: true,
                 progress: undefined,
+                theme: 'colored',
+                transition: 'bounce',
             });
             break;
 
         case 'erro':
-            toast.error(mensagem, {
-                position: 'top-right',
-                autoClose: 2000,
+            toast('😓 Oops! Parece que houve um pequeno eclipse, mas vamos resolver isso!', {
+                position: 'bottom-right',
+                autoClose: 4973,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: 'colored',
+                pauseOnHover: true,
+                draggable: true,
                 progress: undefined,
+                theme: 'colored',
+                transition: 'bounce',
             });
             break;
 
         default:
-            toast.info(mensagem, {
-                position: 'top-right',
-                autoClose: 2000,
+            toast('🤔 Parece que algo inesperado aconteceu.', {
+                position: 'bottom-right',
+                autoClose: 4973,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: 'colored',
+                pauseOnHover: true,
+                draggable: true,
                 progress: undefined,
+                theme: 'colored',
+                transition: 'bounce',
             });
             break;
     }
 }
-
