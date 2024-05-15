@@ -3,7 +3,7 @@ import { createContext, ReactNode, useState } from "react"
 import UserLogin from "../Models/UserLogin"
 import { login } from "../Services/Service"
 import Product from "../Models/Product"
-// import { toastAlerta } from "../utils/toastAlerta"
+import { toastAlerta } from "../utils/toastAlerta"
 
 interface AuthContextProps {
     user: UserLogin
@@ -42,12 +42,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true)
         try {
             await login(`/users/login`, userLogin, setUser)
-            alert("Usuário logado com sucesso")
+            toastAlerta("Usuário logado com sucesso")
             setIsLoading(false)
 
         } catch (error) {
             console.log(error)
-            alert("Dados do usuário inconsistentes")
+            toastAlerta("Dados do usuário inconsistentes")
             setIsLoading(false)
         }
     }
@@ -89,7 +89,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function cleanCart() {
-        alert("Compra Efetuada com Sucesso")
+        toastAlerta("Compra Efetuada com Sucesso")
         setItems([])
     }
 

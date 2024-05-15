@@ -6,6 +6,7 @@ import Product from '../../../Models/Product';
 import CardProduct from '../CardProducts/CardProducts';
 import { searchProducts } from '../../../Services/Service';
 import ModalProducts from '../ModalProducts/ModalProducts';
+import { toastAlerta } from "../utils/toastAlerta"
 
 function ListProduct() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -17,7 +18,7 @@ function ListProduct() {
     try {
       await searchProducts('/products', setProducts);
     } catch (error: any) {
-      alert('Algo deu errado')
+      toastAlerta('Algo deu errado')
     }
   }
 

@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContext';
 import Product from '../../../Models/Product';
 import Category from '../../../Models/Category';
 import { find, update, register } from '../../../Services/Service';
-
+import { toastAlerta } from "../utils/toastAlerta"
 
 function FormProduct() {
     let navigate = useNavigate();
@@ -58,7 +58,7 @@ function FormProduct() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado');
             navigate('/');
         }
     }, [token]);
@@ -103,14 +103,14 @@ function FormProduct() {
                         Authorization: token,
                     },
                 });
-                alert('O produto foi atualizado com sucesso');
+                toastAlerta('O produto foi atualizado com sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente')
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar o Produto');
+                    toastAlerta('Erro ao atualizar o Produto');
                 }
             }
         } else {
@@ -121,14 +121,14 @@ function FormProduct() {
                     },
                 });
 
-                alert('Produto cadastrado com sucesso');
+                toastAlerta('Produto cadastrado com sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente')
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o Produto');
+                    toastAlerta('Erro ao cadastrar o Produto');
                 }
             }
         }

@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContext'
 
 import { find, remove } from '../../../Services/Service'
 import Category from '../../../Models/Category'
+import { toastAlerta } from "../utils/toastAlerta"
 
 function DeleteCategory() {
     const [category, setCategory] = useState<Category>({} as Category)
@@ -24,7 +25,7 @@ function DeleteCategory() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente')
                 handleLogout()
             }
         }
@@ -32,7 +33,7 @@ function DeleteCategory() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado')
             navigate('/login')
         }
     }, [token])
@@ -55,10 +56,10 @@ function DeleteCategory() {
                 }
             })
 
-            alert('Categoria apagada com sucesso')
+            toastAlerta('Categoria apagada com sucesso')
 
         } catch (error) {
-            alert('Erro ao apagar a Categoria')
+            toastAlerta('Erro ao apagar a Categoria')
         }
 
         turnBack()
