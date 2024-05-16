@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import User from '../../Models/User'
 import { registerUser } from '../../Services/Service'
 import './Register.css'
+import { toastAlerta } from '../../utils/toastAlerta'
 
 
 
