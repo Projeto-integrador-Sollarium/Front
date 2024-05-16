@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { find } from '../../Services/Service'; // Importar a função find
 
-import { RevolvingDot } from 'react-loader-spinner'; // Importar o componente Dna
+import { ColorRing } from 'react-loader-spinner'; // Importar o componente Color Ring
 import { toastAlerta } from '../../utils/toastAlerta'; // Importar a função toastAlerta
 
 function CategoryDescription() {
@@ -41,28 +41,37 @@ function CategoryDescription() {
     }, [id]); // Adicionar categoryID como dependência do useEffect
 
     return (
-        <div className="flex flex-col justify-center items-center h-screen">
+        <div className='flex w-200 h-200 justify-center items-center'>
+            <div className="flex">
             {category === null && (
-                <RevolvingDot
+                <ColorRing
                     visible={true}
-                    height="200"
-                    width="200"
-                    color="#ffcb21"
-                    ariaLabel="revolving-dot-loading"
+                    height="300"
+                    width="300"
+                    colors={['#FF3232', '#FF5A5A', '#d5e4f5', '#8399E8', '#4D73FD']}
+                    ariaLabel="color-ring-loading"
                     wrapperStyle={{}}
-                    wrapperClass="dna-wrapper mx-auto"
+                    wrapperClass="color-ring-wrapper"
                 />
             )}
+            </div>
             {category !== null && (
                 <>
-                    <h1 className="text-3xl font-bold mb-8">{category.name}</h1>
-                    <p className="text-center mb-8">{category.description}</p>
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={handleNavigateBack}
-                    >
-                        Voltar para Categorias
-                    </button>
+                <div className="flex flex-col">
+                    <div className="flex justify-center">
+                        <h1 className="text-4xl font-bold m-10">{category.name}</h1>
+                    </div>
+                    <div className="flex justify-center">
+                        <p className="text-center mt-2 mb-8 mr-12 ml-12 text-xl">{category.description}</p>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
+                            onClick={handleNavigateBack}>
+                            Voltar para Categorias
+                        </button>
+                    </div>
+                </div>
                 </>
             )}
         </div>
