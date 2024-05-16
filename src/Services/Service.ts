@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: 'https://sollarium-hn4e.onrender.com/'
+export const api = axios.create({
+   baseURL: import.meta.env.VITE_API_URL
 })
 
 export const registerUser = async(url: string, data: Object, setData: Function) => {
