@@ -42,7 +42,7 @@ function ProductPage() {
     // Se o produto foi carregado com sucesso, renderize as informações do produto
     return (
         <><div className="flex justify-center items-center">
-      {product.id === undefined && (
+      {product.photo === "" && (
         <ColorRing
         visible={true}
         height="300"
@@ -52,7 +52,8 @@ function ProductPage() {
         wrapperStyle={{}}
         wrapperClass="color-ring-wrapper"
     />
-      )}</div>
+      )}
+      
         <div className="container mx-auto mt-4">
             <div className="flex">
                 <div className="w-1/2">
@@ -61,8 +62,8 @@ function ProductPage() {
                 <div className="w-1/2 px-4">
                     <div className="font-bold text-3xl mb-4">{product.name}</div>
                     <div className="text-gray-700 text-lg mb-4">{product.description}</div>
-                    <div className="text-gray-800 text-2xl mb-4">R${product.price}</div>
-                    <div className="flex gap-4">
+                    <div className="text-gray-800 text-2xl mb-4 font-bold">R${product.price}</div>
+                    <div className="flex gap-4 justify-self-end ">
                         {user.id === 1 ? (
                             <Link to={`/editProduct/${product.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                                 Editar
@@ -89,6 +90,7 @@ function ProductPage() {
                         )}
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         </>
