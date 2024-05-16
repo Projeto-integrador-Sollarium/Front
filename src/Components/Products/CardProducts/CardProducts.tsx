@@ -12,7 +12,7 @@ function CardProduct({ product }: CardProductProps) {
   const { addProduct, removeProduct, user } = useContext(AuthContext)
 
   return (
-    <div className="max-w-sm overflow-hidden">
+    <div className="max-w-sm overflow-hidden ">
       <div className="px-6 py-4">
       <div className="flex justify-center items-center "><img src={product.photo} alt="Product Photo" /></div>
         <div className='text-center font-bold text-xl mb-2 hover:text-gray-700 font-sans'><Link to={`/product/${product.id}`}>{product.name}</Link></div>

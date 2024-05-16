@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import HomeImg from '../../assets/Home.png';
+import Home1 from '../../assets/Home1.png';
+import Home2 from '../../assets/home2.png';
 import Carousel from '../../Components/Carousel/Carousel';
 
 function Home() {
@@ -14,7 +15,7 @@ function Home() {
             <div className='flex justify-center items-center mt-10'>
                 <div className="flex bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="w-2/6 p-2">
-                        <img src={HomeImg} alt="Home" className="" />
+                        <img src={Home1} alt="Home1" className="w-full h-auto" />
                     </div>
                     <div className="w-4/6 p-6 text-right">
                         <h2 className="text-3xl font-bold mb-4 text-gray-800 font-serif">Da Poluição ao Progresso</h2>
@@ -24,10 +25,14 @@ function Home() {
                         <p className="text-lg text-gray-700 mb-4 leading-relaxed font-serif">
                             Além disso, a saúde dos funcionários e da comunidade é uma preocupação crescente. A queima de combustíveis fósseis libera poluentes nocivos, ligados a problemas de saúde como doenças respiratórias e câncer. Investir em energia limpa reduz a exposição a esses poluentes e demonstra um compromisso com o bem-estar das pessoas.
                         </p>
+
                         <p className="text-lg text-gray-700 mb-4 leading-relaxed font-serif">
                             A transição para a energia limpa é não apenas uma necessidade ambiental, mas também uma oportunidade econômica. Setores como energia solar e eólica estão crescendo e oferecem espaço para investimentos e inovação. Empresas que adotam essa mudança destacam-se como líderes em sustentabilidade e podem beneficiar-se financeiramente, seja economizando a longo prazo ou acessando novos mercados. Escolher energia limpa é uma decisão estratégica que impulsiona o crescimento sustentável e a prosperidade a longo prazo.
                         </p>
+
                     </div>
+
+
                 </div>
             </div>
             <div className='flex justify-center items-center mt-10'>
@@ -46,7 +51,7 @@ function Home() {
                         </p>
                     </div>
                     <div className="w-2/6 p-2">
-                        <img src={HomeImg} alt="Home" className="" />
+                        <img src={Home2} alt="Home2" className="" />
                     </div>
                 </div>
             </div>

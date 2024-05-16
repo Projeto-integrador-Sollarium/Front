@@ -30,6 +30,7 @@ function App() {
 
   return (
     <>
+      <div className='bg-azul-fundo'>
       <AuthProvider>
       <ToastContainer/>
 
@@ -58,6 +59,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </AuthProvider>
+      </div>
     </>
   )
 }

@@ -5,7 +5,8 @@ import { AuthContext } from '../../Contexts/AuthContext'
 import { Link, useNavigate } from "react-router-dom";
 import UserLogin from '../../Models/UserLogin';
 import { RotatingLines } from 'react-loader-spinner';
-import { toastAlerta } from '../../../utils/toastAlerta'
+import Jorge from '../../assets/Jorge.png';
+
 
 function Login(){
     let navigate = useNavigate();
@@ -40,7 +41,7 @@ function Login(){
     return(
         <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
             <form onSubmit={login} className="flex justify-center items-center flex-col w-1/2 gap-4">
-                <h2 className="text-slate-900 text-5x1">Entrar</h2>
+                <h2 className="text-slate-900 text-5x1 text-4xl">Entrar</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="email">Email</label>
                     <input 
@@ -67,7 +68,7 @@ function Login(){
                     />
                 </div>
 
-                <button type='submit' className="rounded bg-cyan-500 hover:bg-cyan-900 text-white w-1/2 py-2 flex justify-center">
+                <button type='submit' className="rounded bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white w-1/2 py-2 flex justify-center">
                     {isLoading ? <RotatingLines
                     strokeColor="white"
                     strokeWidth="5"
@@ -87,7 +88,11 @@ function Login(){
                         </Link>
                     </p>
             </form>
+            <div className='flex justify-center items-center flex-col w-1/2 gap-4'>
+                    <img src={Jorge} alt="" />
+            </div>
         </div>
+        
     )
 }
 
