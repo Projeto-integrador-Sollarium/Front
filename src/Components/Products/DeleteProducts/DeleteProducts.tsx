@@ -5,6 +5,7 @@ import Product from '../../../Models/Product'
 import { find, remove } from '../../../Services/Service'
 import { toastAlerta } from '../../../utils/toastAlerta'
 
+
 function DeleteProduct() {
   const [product, setProduct] = useState<Product>({} as Product)
 
@@ -55,7 +56,7 @@ function DeleteProduct() {
         }
       })
 
-      toastAlerta('Produto apagado com sucesso', 'info')
+      toastAlerta('Produto apagado com sucesso', 'sucesso')
 
     } catch (error) {
       toastAlerta('Erro ao apagar o Produto do Banco', 'erro')

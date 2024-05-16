@@ -7,6 +7,7 @@ import { find } from '../../Services/Service'; // Importar a função find
 import { ColorRing } from 'react-loader-spinner'; // Importar o componente Color Ring
 import { toastAlerta } from '../../utils/toastAlerta'; // Importar a função toastAlerta
 
+
 function CategoryDescription() {
     const { id } = useParams<{ id: string }>()
     const [category, setCategory] = useState<Category | null>(null); // Ajuste da tipagem aqui
@@ -31,7 +32,7 @@ function CategoryDescription() {
 
     useEffect(() => {
         if (token === '') {
-            toastAlerta('Você precisa estar logado', 'info')
+            toastAlerta('', 'info')
             navigate('/login')
         }
     }, [token])

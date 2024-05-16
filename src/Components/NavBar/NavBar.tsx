@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import { useContext } from 'react'
 import jorge from '../../assets/Jorge.png';
+import sol from '../../assets/solll.svg'
 import { ShoppingCart, User } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
 import { AuthContext } from '../../Contexts/AuthContext';
@@ -22,20 +23,20 @@ function Navbar() {
   return (
 
     <>
-      <div className='w-full bg-escuro-dark-pastel-blue text-white flex justify-center py-4'>
+      <div className='w-full bg-blue-950 text-white flex justify-center py-4'>
         <div className="container flex items-center justify-between text-lg">
           <div className="flex items-center gap-2">
-            <img src={jorge} alt="" className='w-12 h-12' />
+            <img src={sol} alt="" className='w-24 h-20' />
             <Link to='/home' className='text-2xl font-bold uppercase text-white'>Sollarium</Link>
           </div>
 
           <div className='flex gap-6'>
-            <Link to='/products' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Produtos</Link>
-            <Link to='/Categories' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Categorias</Link>
-            <Link to='/sobre' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-5 rounded-l'>Sobre</Link>
-            {user.id === 1 ? <Link to='/registerCategory' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' >Cadastrar Categoria</Link> : null}
+            <Link to='/products' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Produtos</Link>
+            <Link to='/Categories' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Categorias</Link>
+            <Link to='/sobre' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-5 rounded-l'>Sobre</Link>
+            {user.id === 1 ? <Link to='/registerCategory' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' >Cadastrar Categoria</Link> : null}
             {user.id === 1 ? < ModalProducts /> : null}
-            <div className=' relative bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue rounded-l py-6 px-1'>
+            <div className=' relative bg-blue-950 hover:bg-dark-pastel-blue rounded-l py-6 px-1'>
                 {user.id !== 0 ?
                   <Link to='/cart' className=' text-white font-bold '> 
                     <span className="absolute top-0 right-0 mt-3 -mr-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center">{itemsQuantity}</span>  
@@ -44,7 +45,7 @@ function Navbar() {
             </div>
             
 
-            {user.id === 0 ? <Link to='/login' className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Login</Link> : <div className='bg-escuro-dark-pastel-blue hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' onClick={handleLogout}>Logout</div>}
+            {user.id === 0 ? <Link to='/login' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l'>Login</Link> : <div className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded-l' onClick={handleLogout}>Logout</div>}
 
           </div>
         </div>

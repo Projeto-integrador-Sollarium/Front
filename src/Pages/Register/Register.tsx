@@ -4,6 +4,7 @@ import User from '../../Models/User'
 import { registerUser } from '../../Services/Service'
 import './Register.css'
 import { toastAlerta } from '../../utils/toastAlerta'
+import Jorge from '../../assets/Jorge.png';
 
 
 
@@ -76,8 +77,8 @@ function Register() {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
-            <form className="flex justify-center items-center flex-col w-1/2 gap-4" onSubmit={registerNewUser}>
-                <h2 className="text-slate-900 text-5x1">Cadastre-se</h2>
+            <form className="flex justify-center items-center flex-col w-1/2 gap-4 " onSubmit={registerNewUser}>
+                <h2 className="text-slate-900 text-5x1 text-4xl">Cadastre-se</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="email">Nome</label>
                     <input
@@ -134,7 +135,7 @@ function Register() {
                         type="text"
                         id="address"
                         name="address"
-                        placeholder="address"
+                        placeholder="Endereço"
                         className="border-2 border-slate-700 rounded p-2"
                         value={user.address}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
@@ -177,6 +178,9 @@ function Register() {
                 </div>
 
             </form>
+            <div className='flex justify-center items-center flex-col w-1/2 gap-4'>
+                    <img src={Jorge} alt="" />
+            </div>
         </div>
     )
 }

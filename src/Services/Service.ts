@@ -1,8 +1,9 @@
 import axios from "axios";
 
-export const api = axios.create({
-   baseURL: import.meta.env.VITE_API_URL
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL
 })
+
 
 export const registerUser = async(url: string, data: Object, setData: Function) => {
   const response = await api.post(url, data)
