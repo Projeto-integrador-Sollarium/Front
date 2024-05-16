@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Product from '../../Models/Product';
 import { find, searchProducts } from '../../Services/Service'; 
+import { ColorRing } from 'react-loader-spinner';
 
 function ProductPage() {
     const { addProduct, removeProduct, user } = useContext(AuthContext);
@@ -40,6 +41,18 @@ function ProductPage() {
 
     // Se o produto foi carregado com sucesso, renderize as informações do produto
     return (
+        <><div className="flex justify-center items-center">
+      {product.id === undefined && (
+        <ColorRing
+        visible={true}
+        height="300"
+        width="300"
+        colors={['#FF3232', '#FF5A5A', '#d5e4f5', '#8399E8', '#4D73FD']}
+        ariaLabel="color-ring-loading"
+        wrapperStyle={{}}
+        wrapperClass="color-ring-wrapper"
+    />
+      )}</div>
         <div className="container mx-auto mt-4">
             <div className="flex">
                 <div className="w-1/2">
@@ -78,6 +91,7 @@ function ProductPage() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

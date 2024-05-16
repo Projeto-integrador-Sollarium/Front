@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Grid } from 'react-loader-spinner';
+import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
 import { find } from '../../../Services/Service';
@@ -23,7 +23,7 @@ function ListCategories() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        toastAlerta('O token expirou, favor logar novamente', 'erro')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -31,7 +31,7 @@ function ListCategories() {
 
   useEffect(() => {
     if (token === '') {
-      toastAlerta('Você precisa estar logado', 'erro');
+      toastAlerta('Você precisa estar logado', 'info');
       navigate('/login');
     }
   }, [token]);
@@ -40,19 +40,18 @@ function ListCategories() {
     findCategories();
   }, [categories.length]);
   return (
-    <>
+    <><div className="flex justify-center items-center">
       {categories.length === 0 && (
-        <Grid
+        <ColorRing
         visible={true}
-        height="80"
-        width="80"
-        color="#bg-escuro-dark-pastel-blue"
-        ariaLabel="grid-loading"
-        radius="12.5"
+        height="300"
+        width="300"
+        colors={['#FF3232', '#FF5A5A', '#d5e4f5', '#8399E8', '#4D73FD']}
+        ariaLabel="color-ring-loading"
         wrapperStyle={{}}
-        wrapperClass="grid-wrapper"
-        />
-      )}
+        wrapperClass="color-ring-wrapper"
+    />
+      )}</div>
       <div className="flex justify-center w-full my-4">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
