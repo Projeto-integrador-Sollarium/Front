@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Home1 from '../../assets/Home1.png';
+import Home1 from '../../assets/planet.jpeg';
 import Home2 from '../../assets/home2.png';
 import Carousel from '../../Components/Carousel/Carousel';
 

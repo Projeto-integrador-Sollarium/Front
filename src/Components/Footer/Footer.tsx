@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <>
-        <div className="flex justify-center bg-escuro-dark-pastel-blue text-white">
+        <div className="flex justify-center bg-blue-950 text-white">
           <div className="container flex flex-col items-center py-4">
             <p className='text-xl font-bold'>Sollarium Generation | Copyright: </p>
             <p className='text-lg'>Acesse nossas redes sociais</p>
