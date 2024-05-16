@@ -31,7 +31,7 @@ function CategoryDescription() {
 
     useEffect(() => {
         if (token === '') {
-            toastAlerta('Você precisa estar logado', 'info')
+            toastAlerta('', 'info')
             navigate('/login')
         }
     }, [token])
