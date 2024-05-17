@@ -13,22 +13,29 @@ function CardCategories({category}: CardCategoryProps) {
 
   const { user } = useContext(AuthContext)
   return (
-    <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-      <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>{category.name}</header>
-      <p className='p-8 text-3xl bg-slate-200 h-full truncate'>{category.description}</p>
-      <div className="flex">
-      {user.id === 1 ? 
-        <Link to={`/editCategory/${category.id}`} className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-          <button>Editar</button>
-        </Link> : <Link to={`/category/${category.id}`} className='w-full text-slate-100 bg-green-400 hover:bg-green-700 flex items-center justify-center py-2'>
-          <button>Versão completa</button>
-        </Link>
-        }
-        {user.id === 1 ?
-        <Link to={`/deleteCategory/${category.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-          <button>Deletar</button>
-        </Link>  : null }
-      </div>
+    <div className="max-w-sm mx-auto my-4 bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-blue-500 text-center p-4">
+            <h2 className="font-extrabold text-white text-2xl">{category.name}</h2>
+          </div>
+          <div className="bg-slate-100 p-6">
+            <p className="mb-4 text-base text-neutral-800 truncate">{category.description}</p>
+            <div className="flex justify-around mt-4">
+              {user.id === 1 ? (
+                <>
+                  <Link to={`/editCategory/${category.id}`} className="inline-block rounded bg-yellow-500 text-white px-4 py-2 hover:bg-yellow-600">
+                    Editar
+                  </Link>
+                  <Link to={`/deleteCategory/${category.id}`} className="inline-block rounded bg-red-500 text-white px-4 py-2 hover:bg-red-600">
+                    Deletar
+                  </Link>
+                </>
+              ) : (
+                <Link to={`/category/${category.id}`} className="inline-block rounded bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">
+                  Versão completa
+                </Link>
+              )}
+            </div>
+          </div>
     </div>
   )
 }

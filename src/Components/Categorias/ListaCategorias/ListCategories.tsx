@@ -40,7 +40,8 @@ function ListCategories() {
     findCategories();
   }, [categories.length]);
   return (
-    <><div className="flex justify-center items-center">
+    <>
+    <div className="flex justify-center items-center">
       {categories.length === 0 && (
         <ColorRing
         visible={true}

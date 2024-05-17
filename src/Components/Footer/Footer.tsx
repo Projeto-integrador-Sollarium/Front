@@ -1,5 +1,5 @@
 import React from 'react'
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
+import { FacebookLogo, GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
 
 function Footer() {
  
@@ -15,6 +15,7 @@ function Footer() {
               <LinkedinLogo size={48} weight='bold' />
               <InstagramLogo size={48} weight='bold' />
               <FacebookLogo size={48} weight='bold' />
+              <a href='https://github.com/Projeto-integrador-Sollarium'><GithubLogo size={40} weight='bold'/></a>
             </div>
           </div>
         </div>

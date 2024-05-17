@@ -27,7 +27,7 @@ function Sobre(){
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                             <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center'>
                                 <div>
-                                    <img src="https://i.pinimg.com/564x/50/27/39/502739bf7c30221ef504e364907b2b23.jpg" alt="Camilla" className="rounded-full w-36 h-36 mx-auto mb-2"/>
+                                    <img src="https://media.licdn.com/dms/image/D4D03AQFtaIAziJSeZA/profile-displayphoto-shrink_800_800/0/1696206142141?e=1721260800&v=beta&t=pedvCzWqx_6B2ZdSal_cgSrP8OzosViFlSx0yDLBgKw" alt="Camilla" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3 className='text-bold'>Camilla</h3>
                                     <div className='flex justify-center gap-2 py-1'>
                                         <a href='https://github.com/caoslourenco'><GithubLogo size={40} weight='bold'/></a>
@@ -35,7 +35,7 @@ function Sobre(){
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="https://i.pinimg.com/736x/72/d6/4c/72d64c72c2edc52b5d7b5ead0cb724a2.jpg" alt="Giovanna" className="rounded-full w-36 h-36 mx-auto mb-2"/>
+                                    <img src="https://media.licdn.com/dms/image/D4D03AQEB8HV8XXLZmw/profile-displayphoto-shrink_800_800/0/1708730294339?e=1721260800&v=beta&t=Wd8FTi_mz3Un1PFxeZTo_QcX7R7EcSKxmRunTBsi1gQ" alt="Giovanna" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3>Giovanna</h3>
                                     <div className='flex justify-center gap-2 py-1'>
                                         <a href='https://github.com/GiovannaTocuti'><GithubLogo size={40} weight='bold'/></a>
@@ -43,7 +43,7 @@ function Sobre(){
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="https://i.pinimg.com/564x/b5/9a/70/b59a708051f23cebb9debaa0e7ac716d.jpg" alt="Pedro" className="rounded-full w-36 h-36 mx-auto mb-2"/>
+                                    <img src="https://media.licdn.com/dms/image/C4E03AQECbviPV0_nGQ/profile-displayphoto-shrink_800_800/0/1653518274628?e=1721260800&v=beta&t=0GXO1KmKzSjcRsfT5OTwuOYhRlW1SYnEy4KqyYh6-sU" alt="Pedro" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3>Pedro</h3>
                                     <div className='flex justify-center gap-2 py-1'>
                                         <a href='https://github.com/PedroHenrique726'><GithubLogo size={40} weight='bold'/></a>
@@ -51,7 +51,7 @@ function Sobre(){
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="https://i.pinimg.com/564x/c7/b5/91/c7b59165af56d1490216649f089907e0.jpg" alt="Thais" className="rounded-full w-36 h-36 mx-auto mb-2"/>
+                                    <img src="https://media.licdn.com/dms/image/D4D03AQGn--vpWfcJ4w/profile-displayphoto-shrink_800_800/0/1713488061986?e=1721260800&v=beta&t=9Tmv5I6XYsXl_cjsaysaFc4_ib199qGqvxko18HAbRg" alt="Thais" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3>Thais</h3>
                                     <div className='flex justify-center gap-2 py-1'>
                                         <a href='https://github.com/tpaiva700'><GithubLogo size={40} weight='bold'/></a>
@@ -59,7 +59,7 @@ function Sobre(){
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="https://i.pinimg.com/736x/05/22/91/0522916c52a9f92a59663d60b9198618.jpg" alt="Vinicius" className="rounded-full w-36 h-36 mx-auto mb-2"/>
+                                    <img src="https://media.licdn.com/dms/image/D4D03AQE9o0DZkybHxg/profile-displayphoto-shrink_800_800/0/1708650627463?e=1721260800&v=beta&t=oYxpgyjPpQJ9jLoCk2Axvs34fMg1tX3oPt-08ENhUkU" alt="Vinicius" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3>Vinicius</h3>
                                     <div className='flex justify-center gap-2 py-1'>
                                         <a href='https://github.com/vinisisantos'><GithubLogo size={40} weight='bold'/></a>
