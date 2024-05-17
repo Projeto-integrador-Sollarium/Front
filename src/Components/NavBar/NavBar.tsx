@@ -43,9 +43,9 @@ function Navbar() {
               )}
 
               {user.id !== 0 && (
-                  <div className='relative bg-blue-950 hover:bg-dark-pastel-blue rounded py-6 px-1'>
+                  <div className='w-18 h-18 relative  bg-blue-950 hover:bg-dark-pastel-blue rounded py-6 px-3'>
                       <Link to='/cart' className='text-white font-bold'> 
-                          <span className="absolute top-0 right-0 mt-3 -mr-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center">{itemsQuantity}</span>  
+                          <span className="absolute top-0 right-0 mt-3 mr-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center">{itemsQuantity}</span>  
                           <ShoppingCart size={28} color="white" weight="bold" onClick={onClickCart} />
                       </Link>
                   </div>
