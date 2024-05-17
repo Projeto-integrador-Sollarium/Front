@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthContext';
 import Product from '../../../Models/Product';
 import Category from '../../../Models/Category';
 import { find, update, register } from '../../../Services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function FormProduct() {
@@ -58,7 +59,7 @@ function FormProduct() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token]);
@@ -103,14 +104,14 @@ function FormProduct() {
                         Authorization: token,
                     },
                 });
-                alert('O produto foi atualizado com sucesso');
+                toastAlerta('O produto foi atualizado com sucesso', 'sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info')
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar o Produto');
+                    toastAlerta('Erro ao atualizar o Produto', 'erro');
                 }
             }
         } else {
@@ -121,14 +122,14 @@ function FormProduct() {
                     },
                 });
 
-                alert('Produto cadastrado com sucesso');
+                toastAlerta('Produto cadastrado com sucesso', 'sucesso');
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info')
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o Produto');
+                    toastAlerta('Erro ao cadastrar o Produto', 'erro');
                 }
             }
         }
