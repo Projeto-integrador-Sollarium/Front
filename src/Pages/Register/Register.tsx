@@ -153,7 +153,7 @@ function Register() {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
                 </div>
-                <div className="flex flex-col w-full">
+                {/* <div className="flex flex-col w-full">
                     <label htmlFor="photo">Foto</label>
                     <input
                         type="text"
@@ -164,7 +164,7 @@ function Register() {
                         value={user.photo}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
-                </div>
+                </div> */}
                 <div className="flex justify-around w-full gap-8">
                     <button type='submit' className="rounded bg-cyan-500 hover:bg-cyan-900 text-white w-1/2 py-2 flex justify-center">
                         <span>Cadastrar</span>
