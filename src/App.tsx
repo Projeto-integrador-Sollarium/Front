@@ -20,7 +20,7 @@ import Cart from './Pages/Cart/Cart';
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductPage from './Pages/Product/Product';
-import CategoryDescription from './Pages/CategoryDescription/CategriDescription';
+import CategoryDescription from './Pages/CategoryDescription/CategoryDescription.tsx';
 
 
 
