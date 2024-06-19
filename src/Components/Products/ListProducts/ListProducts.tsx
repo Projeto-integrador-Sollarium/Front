@@ -29,7 +29,8 @@ function ListProduct() {
 
   console.log(user)
   return (
-    <><div className="flex justify-center items-center">
+    <>
+    <div className="flex justify-center items-center">
       {products.length === 0 && (
         <ColorRing
         visible={true}
@@ -41,6 +42,7 @@ function ListProduct() {
         wrapperClass="color-ring-wrapper"
     />
       )}</div>
+      
       <div className='flex flex-col'>
         <div className="flex justify-center w-full my-4">
           <div className="container flex flex-col">

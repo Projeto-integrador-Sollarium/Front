@@ -46,8 +46,9 @@ function ProductPage() {
 
     // Se o produto foi carregado com sucesso, renderize as informações do produto
     return (
-        <><div className="flex justify-center items-center">
-            {product.photo === "" && (
+        <>
+        <div className="flex justify-center items-center">
+            {product.id === 0 && (
                 <ColorRing
                     visible={true}
                     height="300"
@@ -58,7 +59,9 @@ function ProductPage() {
                     wrapperClass="color-ring-wrapper"
                 />
             )}
-
+        </div>
+        
+        {product.id !== 0 && (
             <div className="container mx-auto mt-4">
                 <div className="flex">
                     <div className="w-1/2">
@@ -96,7 +99,7 @@ function ProductPage() {
                         </div>
                     </div>
                 </div>
-                <div  className="flex justify-end items-end mb-6">
+                <div className="flex justify-end items-end mb-6">
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                         onClick={handleNavigateBack}>
@@ -104,9 +107,8 @@ function ProductPage() {
                     </button>
                 </div>
             </div>
-
-        </div>
-        </>
+        )}
+    </>
     );
 }
 
