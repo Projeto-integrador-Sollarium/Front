@@ -6,8 +6,11 @@ import Category from '../../../Models/Category';
 import { find, update, register } from '../../../Services/Service';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
+interface FormProductProps {
+    closeModal: () => void;
+}
 
-function FormProduct() {
+function FormProduct({ closeModal }: FormProductProps) {
     let navigate = useNavigate();
 
     const { id } = useParams<{ id: string }>();
@@ -68,8 +71,6 @@ function FormProduct() {
         searchCategories();
         if (id !== undefined) {
             findProductByID(id);
-        
-
         }
     }, [id]);
 
@@ -105,6 +106,7 @@ function FormProduct() {
                     },
                 });
                 toastAlerta('O produto foi atualizado com sucesso', 'sucesso');
+                closeModal(); // Fechando o modal ao concluir a operação
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
@@ -123,6 +125,7 @@ function FormProduct() {
                 });
 
                 toastAlerta('Produto cadastrado com sucesso', 'sucesso');
+                closeModal(); // Fechando o modal ao concluir a operação
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {

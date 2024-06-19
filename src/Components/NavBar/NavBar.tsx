@@ -7,6 +7,7 @@ import { ShoppingCart, User } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
 import { AuthContext } from '../../Contexts/AuthContext';
 import ModalProducts from '../Products/ModalProducts/ModalProducts';
+import ModalLogin from '../Login/ModalLogin/ModalLogin';
 import ModalCategories from '../Categorias/ModalCategories/ModalCategories';
 
 function Navbar() {
@@ -53,7 +54,7 @@ function Navbar() {
               )}
               
               {user.id === 0 ? (
-                  <Link to='/login' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded'>Login</Link>
+                  <ModalLogin />
               ) : (
                   <div className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded' onClick={handleLogout}>Logout</div>
               )}

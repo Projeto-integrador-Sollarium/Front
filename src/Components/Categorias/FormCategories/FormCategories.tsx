@@ -5,9 +5,11 @@ import { AuthContext } from '../../../Contexts/AuthContext';
 import { find, update, register } from '../../../Services/Service';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
+interface FormCategoriesProps {
+  closeModal: () => void;
+}
 
-
-function FormCategories() {
+function FormCategories({ closeModal }: FormCategoriesProps) {
   const [category, setCategory] = useState<Category>({} as Category);
 
   let navigate = useNavigate();
@@ -27,21 +29,21 @@ function FormCategories() {
 
   useEffect(() => {
     if (id !== undefined) {
-        findByiD(id)
+        findByiD(id);
     }
-  }, [id])
+  }, [id]);
 
   function updateState(e: ChangeEvent<HTMLInputElement>) {
     setCategory({
       ...category,
       [e.target.name]: e.target.value
-    })
+    });
 
-    console.log(JSON.stringify(category))
+    console.log(JSON.stringify(category));
   }
 
   async function createNewCategory(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (id !== undefined) {
       try {
@@ -49,19 +51,18 @@ function FormCategories() {
           headers: {
             'Authorization': token
           }
-        })
+        });
 
-        toastAlerta('Categoria atualizada com sucesso', 'sucesso')
-        turnBack()
+        toastAlerta('Categoria atualizada com sucesso', 'sucesso');
+        closeModal();
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          toastAlerta('O token expirou, favor logar novamente', 'info')
-          handleLogout()
+          toastAlerta('O token expirou, favor logar novamente', 'info');
+          handleLogout();
         } else {
-          toastAlerta('Erro ao atualizar a Categoria', 'erro')
+          toastAlerta('Erro ao atualizar a Categoria', 'erro');
         }
-
       }
 
     } else {
@@ -70,25 +71,20 @@ function FormCategories() {
           headers: {
             'Authorization': token
           }
-        })
+        });
 
-        toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
+        toastAlerta('Categoria cadastrada com sucesso', 'sucesso');
+        closeModal();
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          toastAlerta('O token expirou, favor logar novamente', 'info')
-          handleLogout()
+          toastAlerta('O token expirou, favor logar novamente', 'info');
+          handleLogout();
         } else {
-          toastAlerta('Erro ao cadastrar Categoria', 'erro')
+          toastAlerta('Erro ao cadastrar Categoria', 'erro');
         }
       }
     }
-
-    turnBack()
-  }
-
-  function turnBack() {
-    navigate("/categories")
   }
 
   useEffect(() => {
@@ -96,7 +92,7 @@ function FormCategories() {
       toastAlerta('Você precisa estar logado', 'info');
       navigate('/login');
     }
-  }, [token]);
+  }, [token, navigate]);
 
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
@@ -105,7 +101,7 @@ function FormCategories() {
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={createNewCategory}>
-      <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <label htmlFor="name">Nome da Categoria</label>
           <input
             type="text"
