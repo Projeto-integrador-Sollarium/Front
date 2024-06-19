@@ -10,7 +10,7 @@ import Register from './Pages/Register/Register';
 
 import { AuthProvider } from './Contexts/AuthContext';
 
-import FormCategories from './Components/Categorias/FormCategories/FormCtegories';
+import FormCategories from './Components/Categorias/FormCategories/FormCategories.tsx';
 import ListCategories from './Components/Categorias/ListaCategorias/ListCategories';
 import DeleteCategory from './Components/Categorias/DeleteCategory/DeleteCategory';
 import ListProducts from './Components/Products/ListProducts/ListProducts';
