@@ -8,9 +8,10 @@ import { toastAlerta } from '../../../utils/toastAlerta';
 
 interface FormProductProps {
     closeModal: () => void;
+    initialProduct?: Product; // Atualizado
 }
 
-function FormProduct({ closeModal }: FormProductProps) {
+function FormProduct({ closeModal, initialProduct }: FormProductProps) {
     let navigate = useNavigate();
 
     const { id } = useParams<{ id: string }>();
@@ -20,13 +21,13 @@ function FormProduct({ closeModal }: FormProductProps) {
 
     const [categories, setCategories] = useState<Category[]>([]);
 
-    const [category, setCategory] = useState<Category>({
+    const [category, setCategory] = useState<Category>(initialProduct?.category || {
         id: 0,
         name: '',
         description: '',
     });
 
-    const [product, setProduct] = useState<Product>({
+    const [product, setProduct] = useState<Product>(initialProduct || {
         id: 0,
         name: '',
         inventory: 0,
@@ -65,7 +66,7 @@ function FormProduct({ closeModal }: FormProductProps) {
             toastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
-    }, [token]);
+    }, [token, navigate]);
 
     useEffect(() => {
         searchCategories();
@@ -90,7 +91,7 @@ function FormProduct({ closeModal }: FormProductProps) {
     }
 
     function turnBack() {
-        navigate('/categories');
+        navigate('/products');
     }
 
     async function createNewProduct(e: ChangeEvent<HTMLFormElement>) {
@@ -165,7 +166,6 @@ function FormProduct({ closeModal }: FormProductProps) {
                         type="text"
                         placeholder="Descrição"
                         name="description"
-
                         className="border-2 border-slate-700 rounded p-2"
                     />
                 </div>
@@ -201,7 +201,6 @@ function FormProduct({ closeModal }: FormProductProps) {
                         type="text"
                         placeholder="Foto do Produto"
                         name="photo"
-                        
                         className="border-2 border-slate-700 rounded p-2"
                     />
                 </div>
@@ -210,9 +209,7 @@ function FormProduct({ closeModal }: FormProductProps) {
                     <select name="tema" id="tema" className='border p-2 border-slate-800 rounded' onChange={(e) => findCategoryByID(e.currentTarget.value)}>
                         <option value="" selected disabled>Selecione uma Categoria:</option>
                         {categories.map((category) => (
-                            <>
-                                <option value={category.id} >{category.name}</option>
-                            </>
+                            <option key={category.id} value={category.id} >{category.name}</option>
                         ))}
                     </select>
                 </div>

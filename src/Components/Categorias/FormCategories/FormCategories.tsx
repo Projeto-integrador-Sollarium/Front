@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import React, { ChangeEvent, useContext, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Category from '../../../Models/Category';
 import { AuthContext } from '../../../Contexts/AuthContext';
@@ -7,15 +7,14 @@ import { toastAlerta } from '../../../utils/toastAlerta';
 
 interface FormCategoriesProps {
   closeModal: () => void;
+  initialCategory?: Category;
 }
 
-function FormCategories({ closeModal }: FormCategoriesProps) {
-  const [category, setCategory] = useState<Category>({} as Category);
+function FormCategories({ closeModal, initialCategory }: FormCategoriesProps) {
+  const [category, setCategory] = useState<Category>(initialCategory || {} as Category);
 
-  let navigate = useNavigate();
-
+  const navigate = useNavigate(); // Obtenha a função navigate do hook useNavigate
   const { id } = useParams<{ id: string }>();
-
   const { user, handleLogout } = useContext(AuthContext);
   const token = user.token;
 
@@ -29,7 +28,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
 
   useEffect(() => {
     if (id !== undefined) {
-        findByiD(id);
+      findByiD(id);
     }
   }, [id]);
 
@@ -38,14 +37,12 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
       ...category,
       [e.target.name]: e.target.value
     });
-
-    console.log(JSON.stringify(category));
   }
 
   async function createNewCategory(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (id !== undefined) {
+    if (id !== undefined || initialCategory?.id) {
       try {
         await update(`/categories`, category, setCategory, {
           headers: {
@@ -55,6 +52,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
 
         toastAlerta('Categoria atualizada com sucesso', 'sucesso');
         closeModal();
+        navigate('/categories'); // Redirecione para a página /categories após o sucesso
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
@@ -75,6 +73,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
 
         toastAlerta('Categoria cadastrada com sucesso', 'sucesso');
         closeModal();
+        navigate('/categories'); // Redirecione para a página /categories após o sucesso
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
@@ -108,7 +107,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
             placeholder="name"
             name='name'
             className="border-2 border-slate-700 rounded p-2"
-            value={category.name}
+            value={category.name || ''}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
           />
         </div>
@@ -119,7 +118,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
             placeholder="description"
             name='description'
             className="border-2 border-slate-700 rounded p-2"
-            value={category.description}
+            value={category.description || ''}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
           />
         </div>
@@ -127,7 +126,7 @@ function FormCategories({ closeModal }: FormCategoriesProps) {
           className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
           type="submit"
         >
-          {id === undefined ? 'Cadastrar' : 'Editar'}
+          {id === undefined && !initialCategory?.id ? 'Cadastrar' : 'Editar'}
         </button>
       </form>
     </div>
