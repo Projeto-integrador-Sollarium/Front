@@ -81,12 +81,13 @@ function ProductPage() {
                         <div className="text-gray-700 text-lg mb-4">{product.description}</div>
                         <div className="text-gray-800 text-2xl mb-4 font-bold">R${product.price}</div>
                         <div className="flex gap-4 justify-self-end ">
+                        {user.id === 1 ? (
                             <button
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                                 onClick={openEditModalHandler} // Chama a função para abrir o modal de edição
                             >
                                 Editar
-                            </button>
+                            </button> ) : null }
                             {user.id === 1 ? (
                                 <>
                                     <Link to={`/deleteProduct/${product.id}`} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
