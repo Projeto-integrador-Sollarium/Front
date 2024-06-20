@@ -36,6 +36,11 @@ function Login({ closeModal }: LoginProps) {
     closeModal(); // Fechando o modal ao concluir o login
   }
 
+  function handleRegisterClick() {
+    closeModal(); // Fecha o modal
+    navigate('/Register'); // Redireciona para a página de registro
+  }
+
   return (
     <form onSubmit={login} className="flex flex-col items-center justify-center h-full">
       <h2 className="text-gray-800 text-4xl mb-4">Entrar</h2>
@@ -78,9 +83,9 @@ function Login({ closeModal }: LoginProps) {
         <hr className="my-4 border-gray-300" />
         <p className="text-gray-700">
           Ainda não tem uma conta?{' '}
-          <Link to="/Register" className="text-blue-500 hover:underline">
+          <span className="text-blue-500 hover:underline cursor-pointer" onClick={handleRegisterClick}>
             Cadastre-se
-          </Link>
+          </span>
         </p>
         {location.pathname === '/Categories' && ( // Condição para renderizar o botão apenas na página /categories
           <div className="flex justify-center">

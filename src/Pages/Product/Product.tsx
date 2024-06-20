@@ -78,6 +78,7 @@ function ProductPage() {
                     </div>
                     <div className="w-1/2 px-4">
                         <div className="font-bold text-3xl mb-4">{product.name}</div>
+                        <div className=" text-3xl mb-4">Categoria: {product.category.name}  -  Em estoque: {product.inventory}</div>
                         <div className="text-gray-700 text-lg mb-4">{product.description}</div>
                         <div className="text-gray-800 text-2xl mb-4 font-bold">R${product.price}</div>
                         <div className="flex gap-4 justify-self-end ">
