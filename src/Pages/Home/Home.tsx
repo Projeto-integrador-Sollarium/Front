@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Home1 from '../../assets/planet.jpeg';
+import imageR from '../../assets/Team.png';
 import Carousel from '../../Components/Carousel/Carousel';
 
 function Home() {
@@ -47,6 +48,35 @@ function Home() {
                     <p className="text-xl text-gray-700 ml-5 mr-5 mb-8 font-serif leading-snug">
                         Outra vantagem crucial da energia solar é sua versatilidade e escalabilidade. Os sistemas solares podem ser instalados em uma variedade de locais, desde telhados de edifícios comerciais até terrenos industriais desocupados. Eles podem ser dimensionados de acordo com as necessidades específicas, desde pequenas operações, como as residenciais, até grandes instalações industriais. Essa flexibilidade torna a energia solar acessível e viável para uma ampla gama de negócios e setores, contribuindo para uma transição mais ampla para uma matriz energética mais limpa e sustentável.
                     </p>
+                </div>
+            </div>
+            {/* Nosos serviços - explicando cada um */}
+            <div className="flex items-center justify-center min-h-8 py-10 bg-orange-100">
+                <div className="text-center w-full max-w-6xl">
+                    <h2 className='font-bold text-4xl text-black py-2'>Nossos Serviços</h2>
+                    <hr className="border-yellow-500 border-2 rounded w-1/2 mx-auto mb-8"/>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                        <div className="text-center">
+                            <img src={imageR} alt="Rural" className="rounded-lg w-80 h-80 mb-5"/>
+                            <h3 className='font-bold'>Projetos Residenciais</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi iusto quasi suscipit nihil doloremque aperiam eos a temporibus.</p>
+                        </div>
+                        <div className="text-center">
+                            <img src={imageR} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
+                            <h3 className='font-bold'>Projetos Residenciais</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi iusto quasi suscipit nihil doloremque aperiam eos a temporibus.</p>
+                        </div>
+                        <div className="text-center">
+                            <img src={imageR} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
+                            <h3 className='font-bold'>Projetos Residenciais</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi iusto quasi suscipit nihil doloremque aperiam eos a temporibus.</p>
+                        </div>
+                        <div className="text-center">
+                            <img src={imageR} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
+                            <h3 className='font-bold'>Projetos Residenciais</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi iusto quasi suscipit nihil doloremque aperiam eos a temporibus.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import { useContext } from 'react'
 import jorge from '../../assets/Jorge.png';
-import sol from '../../assets/solll.svg'
+import sol from '../../assets/solcomluz2.svg';
 import { ShoppingCart, User } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
 import { AuthContext } from '../../Contexts/AuthContext';
@@ -21,6 +21,12 @@ function Navbar() {
   function onClickCart() {
     navigate('/home')
   }
+
+  const handleUserIconClick = () => {
+    if (user.id === 0) {
+      handleLogout();
+    }
+  };
 
   return (
 
@@ -53,11 +59,35 @@ function Navbar() {
                   </div>
               )}
               
-              {user.id === 0 ? (
-                  <ModalLogin />
-              ) : (
-                  <div className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded' onClick={handleLogout}>Logout</div>
-              )}
+              
+
+              <div className='relative flex items-center justify-center'>
+                  <User 
+                    size={28} 
+                    color='white' 
+                    weight='bold' 
+                    className='cursor-pointer' 
+                    onClick={handleUserIconClick}
+                    onMouseEnter={() => document.getElementById('authButton').classList.remove('hidden')}
+                    onMouseLeave={() => document.getElementById('authButton').classList.add('hidden')}
+                  />
+                  <button
+                      id="authButton"
+                      className='absolute top-0 left-0 bg-dark-pastel-blue text-black font-bold py-2 px-4 rounded hidden'
+                      onMouseEnter={() => document.getElementById('authButton').classList.remove('hidden')}
+                      onMouseLeave={() => document.getElementById('authButton').classList.add('hidden')}
+                      onClick={handleUserIconClick}
+                      >
+
+                      {user.id === 0 ? (
+                        <ModalLogin />
+                      ) : (
+                          <div onClick={handleLogout}>Logout</div>
+                      )}
+                    
+                  </button>
+                </div>
+
           </div>
         </div>
       </div>
