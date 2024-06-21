@@ -4,6 +4,8 @@ import Product from '../../../Models/Product';
 import { AuthContext } from '../../../Contexts/AuthContext';
 import Popup from 'reactjs-popup';
 import FormProduct from '../FormProducts/FormProducts';
+import FormLogin from '../../Login/FormLogin/FormLogin';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 interface CardProductProps {
   product: Product;
@@ -11,10 +13,24 @@ interface CardProductProps {
 
 function CardProduct({ product }: CardProductProps) {
   const { addProduct, removeProduct, user } = useContext(AuthContext);
-  const [openModal, setOpenModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
 
-  const closeModal = () => {
-    setOpenModal(false);
+  const closeEditModal = () => {
+    setOpenEditModal(false);
+  };
+
+  const closeLoginModal = () => {
+    setOpenLoginModal(false);
+  };
+
+  const handleAddProduct = () => {
+    if (user.token) {
+      addProduct(product);
+    } else {
+      toastAlerta('Você precisa estar logado', 'info');
+      setOpenLoginModal(true);
+    }
   };
 
   return (
@@ -38,7 +54,7 @@ function CardProduct({ product }: CardProductProps) {
         {user.id === 1 ? (
           <>
             <button
-              onClick={() => setOpenModal(true)}
+              onClick={() => setOpenEditModal(true)}
               className='bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded'
             >
               Editar
@@ -51,7 +67,7 @@ function CardProduct({ product }: CardProductProps) {
           <>
             <button
               className="bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded"
-              onClick={() => addProduct(product)}
+              onClick={handleAddProduct}
             >
               Adicionar
             </button>
@@ -65,8 +81,18 @@ function CardProduct({ product }: CardProductProps) {
         )}
       </div>
 
-      <Popup open={openModal} onClose={closeModal} modal>
-        <FormProduct closeModal={closeModal} initialProduct={product} />
+      <Popup open={openEditModal} onClose={closeEditModal} modal>
+        <FormProduct closeModal={closeEditModal} initialProduct={product} />
+      </Popup>
+
+      <Popup
+        open={openLoginModal}
+        onClose={closeLoginModal}
+        modal
+        overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
+        contentStyle={{ borderRadius: '1rem', width: 'auto', padding: '2rem' }}
+      >
+        <FormLogin closeModal={closeLoginModal} />
       </Popup>
     </div>
   );

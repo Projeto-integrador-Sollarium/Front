@@ -1,35 +1,33 @@
 import { Link } from 'react-router-dom'
-import React from 'react'
-import { useContext } from 'react'
-import jorge from '../../assets/Jorge.png';
-import sol from '../../assets/solcomluz2.svg';
+import React, { useContext, useState } from 'react'
 import { ShoppingCart, User } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
-import { AuthContext } from '../../Contexts/AuthContext';
-import ModalProducts from '../Products/ModalProducts/ModalProducts';
-import ModalLogin from '../Login/ModalLogin/ModalLogin';
-import ModalCategories from '../Categorias/ModalCategories/ModalCategories';
+import { AuthContext } from '../../Contexts/AuthContext'
+import ModalProducts from '../Products/ModalProducts/ModalProducts'
+import ModalCategories from '../Categorias/ModalCategories/ModalCategories'
+import FormLogin from '../Login/FormLogin/FormLogin'
+import Popup from 'reactjs-popup'
+import jorge from '../../assets/Jorge.png';
+import sol from '../../assets/solcomluz2.svg';
 
 function Navbar() {
+  const navigate = useNavigate()
+  const { user, handleLogout, itemsQuantity } = useContext(AuthContext)
+  const [openLoginModal, setOpenLoginModal] = useState(false)
 
-  let navigate = useNavigate()
-
-  const { user, handleLogout } = useContext(AuthContext)
-
-  const { itemsQuantity } = useContext(AuthContext)
-
-  function onClickCart() {
+  const onClickCart = () => {
     navigate('/home')
   }
 
   const handleUserIconClick = () => {
     if (user.id === 0) {
-      handleLogout();
+      setOpenLoginModal(true)
+    } else {
+      handleLogout()
     }
-  };
+  }
 
   return (
-
     <>
       <div className='w-full bg-blue-950 text-white flex justify-center py-4'>
         <div className="container flex items-center justify-between text-lg">
@@ -59,8 +57,6 @@ function Navbar() {
                   </div>
               )}
               
-              
-
               <div className='relative flex items-center justify-center'>
                   <User 
                     size={28} 
@@ -78,22 +74,27 @@ function Navbar() {
                       onMouseLeave={() => document.getElementById('authButton').classList.add('hidden')}
                       onClick={handleUserIconClick}
                       >
-
                       {user.id === 0 ? (
-                        <ModalLogin />
+                        <span>Log in</span>
                       ) : (
                           <div onClick={handleLogout}>Logout</div>
                       )}
-                    
                   </button>
                 </div>
-
           </div>
         </div>
       </div>
 
-
-
+      {/* Renderizar o Modal de Login */}
+      <Popup
+        open={openLoginModal}
+        onClose={() => setOpenLoginModal(false)}
+        modal
+        overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
+        contentStyle={{ borderRadius: '1rem', width: 'auto', padding: '2rem' }}
+      >
+        <FormLogin closeModal={() => setOpenLoginModal(false)} />
+      </Popup>
     </>
   )
 }
