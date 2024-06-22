@@ -1,10 +1,11 @@
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import jorgeB from '../../assets/jorgebanner.png';
-import rurais from '../../assets/rurais.png';
-import comercial from '../../assets/comerciais.png';
-import condominio from '../../assets/condominios.png';
-import residenciais from '../../assets/residenciais.png';
+import  banner  from '../../assets/banner1.jpg';
+import  banner2  from '../../assets/banner2.jpg';
+import  banner3  from '../../assets/banner3.jpg';
+import  banner4  from '../../assets/banner4.jpg';
+import  banner5  from '../../assets/banner5.jpg';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -14,6 +15,7 @@ function Carousel(){
 
     return (
         <>
+        
             <Swiper
                 slidesPerView={1}
                 autoplay={{delay: 2500}}
@@ -23,21 +25,22 @@ function Carousel(){
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src={jorgeB}/>
+                    <img src={banner}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={rurais}/>
+                    <img src={banner2}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={residenciais}/>
+                    <img src={banner3}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={comercial}/>
+                    <img src={banner4}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={condominio}/>
+                    <img src={banner5}/>
                 </SwiperSlide>
             </Swiper>
+        
         </>
     )
 }

@@ -30,13 +30,13 @@ function App() {
 
   return (
     <>
-      <div className='bg-azul-fundo'>
+      
       <AuthProvider>
       <ToastContainer/>
 
         <BrowserRouter>
           <Navbar />
-          <div className='min-h-[80vh]'>
+          <div className='min-h-[60vh]'>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
@@ -57,7 +57,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </AuthProvider>
-      </div>
+      
     </>
   )
 }

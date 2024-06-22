@@ -75,7 +75,7 @@ function Navbar() {
                       onClick={handleUserIconClick}
                       >
                       {user.id === 0 ? (
-                        <span>Log in</span>
+                        <span>Login</span>
                       ) : (
                           <div onClick={handleLogout}>Logout</div>
                       )}
