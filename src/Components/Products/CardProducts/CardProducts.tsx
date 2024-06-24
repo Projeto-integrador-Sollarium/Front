@@ -7,6 +7,8 @@ import FormProduct from '../FormProducts/FormProducts';
 import FormLogin from '../../Login/FormLogin/FormLogin';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
+
+
 interface CardProductProps {
   product: Product;
 }
@@ -34,18 +36,18 @@ function CardProduct({ product }: CardProductProps) {
   };
 
   return (
-    <div className="max-w-sm overflow-hidden">
+    <div className="max-w-sm overflow-hidden rounded-lg shadow-md transition-shadow duration-300 ease-in-out hover:shadow-2xl">
       <div className="px-6 py-4">
         <div className="flex justify-center items-center">
-          <img src={product.photo} alt="Product Photo" />
+          <img src={product.photo} alt="Product Photo" className="object-cover h-48 w-full" />
         </div>
-        <div className='text-center font-bold text-xl mb-2 hover:text-gray-700 font-sans'>
+        <div className="text-center font-bold text-xl mb-2 hover:text-gray-700 font-sans">
           <Link to={`/product/${product.id}`}>{product.name}</Link>
         </div>
         <div className="text-slate-500 text-xl">
-          <p className='truncate'>{product.description}</p>
+          <p className="truncate">{product.description}</p>
         </div>
-        <div className='text-2xl font-semibold text-center'>
+        <div className="text-2xl font-semibold text-center">
           <p>R${product.price}</p>
         </div>
       </div>
@@ -55,11 +57,11 @@ function CardProduct({ product }: CardProductProps) {
           <>
             <button
               onClick={() => setOpenEditModal(true)}
-              className='bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded'
+              className="bg-dark-pastel-blue hover:bg-escuro-dark-pastel-blue text-white font-extrabold py-2 px-4 rounded"
             >
               Editar
             </button>
-            <Link to={`/deleteProduct/${product.id}`} className='bg-vermelho-claro hover:bg-vermelho-escuro text-white font-extrabold py-2 px-4 rounded'>
+            <Link to={`/deleteProduct/${product.id}`} className="bg-vermelho-claro hover:bg-vermelho-escuro text-white font-extrabold py-2 px-4 rounded">
               <button>Deletar</button>
             </Link>
           </>
