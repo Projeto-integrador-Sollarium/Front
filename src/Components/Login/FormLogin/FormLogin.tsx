@@ -91,7 +91,7 @@ function Login({ closeModal }: LoginProps) {
           <div className="flex justify-center">
             {/* Adicionando um botão para voltar para a página inicial */}
             <button onClick={() => navigate('/')} className="bg-gray-200 text-gray-800 rounded-md py-2 px-4 mt-2 hover:bg-gray-300 transition duration-300">
-              Voltar
+              Home
             </button>
           </div>
         )}

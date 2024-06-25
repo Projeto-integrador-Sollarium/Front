@@ -39,7 +39,6 @@ function Navbar() {
           <div className='flex gap-6'>
               <Link to='/products' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded'>Produtos</Link>
               <Link to='/Categories' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-4 rounded'>Categorias</Link>
-              <Link to='/sobre' className='bg-blue-950 hover:bg-dark-pastel-blue text-white font-bold py-6 px-5 rounded'>Sobre</Link>
               
               {user.id === 1 && (
                   <>

@@ -21,7 +21,7 @@ import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductPage from './Pages/Product/Product';
 import CategoryDescription from './Pages/CategoryDescription/CategoryDescription.tsx';
-
+import NotFound from './Pages/NotFound/NotFount.tsx'
 
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/category/:id" element={<CategoryDescription />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           
