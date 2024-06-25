@@ -1,27 +1,27 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Category from "../../Models/Category";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Contexts/AuthContext";
-import { find, searchProducts } from '../../Services/Service'; // Importar a função find
+import { findLoggedOut, searchProducts } from '../../Services/Service'; // Importar a função find
 
 import { ColorRing } from 'react-loader-spinner'; // Importar o componente Color Ring
 import { toastAlerta } from '../../utils/toastAlerta'; // Importar a função toastAlerta
 import Product from "../../Models/Product";
 import CardProduct from "../../Components/Products/CardProducts/CardProducts";
+import { AuthContext } from "../../Contexts/AuthContext";
+import Popup from 'reactjs-popup';
+import FormCategories from '../../Components/Categorias/FormCategories/FormCategories';
 
 function CategoryDescription() {
     const { id } = useParams<{ id: string }>();
     const [category, setCategory] = useState<Category | null>(null); // Ajuste da tipagem aqui
-    const { user } = useContext(AuthContext);
-    const token = user.token;
-    let navigate = useNavigate();
     const [products, setProducts] = useState<Product[]>([]);
+    let navigate = useNavigate();
+    const { user } = useContext(AuthContext);
+    const [openModal, setOpenModal] = useState(false);
 
     async function findCategory() {
         try {
-            await find(`/categories/${id}`, setCategory, {
-                headers: { Authorization: token },
-            });
+            await findLoggedOut(`/categories/${id}`, setCategory);
         } catch (error: any) {
             toastAlerta('Algo deu errado', 'info');
         }
@@ -36,14 +36,9 @@ function CategoryDescription() {
     }
 
     useEffect(() => {
-        if (token === '') {
-            toastAlerta('É necessário estar logado para acessar essa página', 'info');
-            navigate('/login');
-        } else {
-            findCategory();
-            findProducts();
-        }
-    }, [token, id]);
+        findCategory();
+        findProducts();
+    }, [id]);
 
     const handleNavigateBack = () => {
         navigate('/categories');
@@ -75,7 +70,18 @@ function CategoryDescription() {
                         <div className="flex justify-center">
                             <p className="text-center mt-2 mb-8 mr-12 ml-12 text-xl">{category.description}</p>
                         </div>
-
+                        {user.id === 1 && ( // Verifica se o usuário é o administrador
+                            <div className="flex justify-center">
+                                <button
+                                    className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded m-5"
+                                    onClick={() => setOpenModal(true)}>
+                                    Editar Categoria
+                                </button>
+                                <Link to={`/deleteCategory/${category.id}`} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-5">
+                                    Deletar Categoria
+                                </Link>
+                            </div>
+                        )}
                         <div className="flex justify-center">
                             <h1 className="text-3xl font-bold m-10">Produtos {category.name}</h1>
                         </div>
@@ -102,6 +108,19 @@ function CategoryDescription() {
                     </div>
                 </>
             )}
+            {/* Modal de edição */}
+            <Popup
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+                modal
+                closeOnDocumentClick={true}
+                overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
+                contentStyle={{ borderRadius: '1rem', paddingBottom: '2rem' }}
+            >
+                <div>
+                    <FormCategories closeModal={() => setOpenModal(false)} initialCategory={category} />
+                </div>
+            </Popup>
         </div>
     );
 }

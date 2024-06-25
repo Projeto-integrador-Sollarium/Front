@@ -20,6 +20,11 @@ export const find = async(url: string, setData: Function, header: Object) => {
   setData(response.data)
 }
 
+export const findLoggedOut = async(url: string, setData: Function) => {
+  const response = await api.get(url)
+  setData(response.data)
+}
+
 export const searchProducts = async(url: string, setData: Function) => {
   const response = await api.get(url)
   setData(response.data)

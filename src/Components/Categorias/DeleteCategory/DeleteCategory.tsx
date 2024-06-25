@@ -68,16 +68,17 @@ function DeleteCategory() {
     return (
         <div className="max-w-sm mx-auto my-4 bg-white rounded-lg shadow-md overflow-hidden">
           <div className="bg-blue-500 text-center p-4">
-            <h2 className="font-extrabold text-white text-2xl">Deletar Categoria?</h2>
+            <h2 className="font-extrabold text-white text-2xl">Deletar Categoria {category.name}?</h2>
             
           </div>
           <div className="bg-slate-100 p-6">
-            <p className="mb-4 text-base text-neutral-800 truncate">{category.name}</p>
+          <h3 className="mb-4 text-base font-bold text-neutral-800 ">Descrição da categoria:</h3>
+            <p className="mb-4 text-base text-neutral-800 ">{category.description}</p>
             <div className="flex justify-around mt-6">
-                    <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={turnBack}>
+                    <button className='inline-block rounded bg-red-500 text-white px-4 py-2 hover:bg-red-600' onClick={turnBack}>
                         Não
                     </button>
-                    <button className='w-full text-slate-100 bg-green-500 hover:bg-green-600 flex items-center justify-center' onClick={deleteCategory}>
+                    <button className='inline-block rounded bg-green-500 text-white px-4 py-2 hover:bg-green-600' onClick={deleteCategory}>
                         Sim
                     </button>
             </div>

@@ -1,46 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
-import { AuthContext } from '../../../Contexts/AuthContext';
-import { find } from '../../../Services/Service';
+import { searchProducts } from '../../../Services/Service';
 import Category from '../../../Models/Category';
 import CardCategories from '../CardCategories/CardCategories';
-import { toastAlerta } from '../../../utils/toastAlerta';
-import Popup from 'reactjs-popup';
-import FormLogin from '../../Login/FormLogin/FormLogin';
 
 function ListCategories() {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [showModal, setShowModal] = useState(false); // Estado para controlar a exibição do modal
-
-  const { user, handleLogout } = useContext(AuthContext);
-  const token = user.token;
 
   useEffect(() => {
-    // Verifica se o token está presente para determinar se o modal deve ser exibido
-    if (!token) {
-      setShowModal(true);
-    } else {
-      findCategories();
-    }
-  }, [token]);
+    findCategories();
+  }, []);
 
   async function findCategories() {
     try {
-      await find('categories', setCategories, {
-        headers: { Authorization: token },
-      });
-    } catch (error: any) {
-      if (error.toString().includes('403')) {
-        toastAlerta('O token expirou, favor logar novamente', 'info');
-        handleLogout();
-      }
+      await searchProducts('categories', setCategories);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
     }
   }
-
-  // Função para fechar o modal
-  const closeModal = () => {
-    setShowModal(false);
-  };
 
   return (
     <>
@@ -66,19 +43,6 @@ function ListCategories() {
           </div>
         </div>
       </div>
-      {/* Modal de Login */}
-      <Popup
-        open={showModal}
-        onClose={closeModal}
-        modal
-        closeOnDocumentClick={false}
-        overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
-        contentStyle={{ borderRadius: '1rem', width: 'auto', padding: '2rem' }}
-      >
-        <div>
-          <FormLogin closeModal={closeModal} />
-        </div>
-      </Popup>
     </>
   );
 }
