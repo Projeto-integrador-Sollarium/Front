@@ -36,7 +36,7 @@ function App() {
 
         <BrowserRouter>
           <Navbar />
-          <div className='min-h-[60vh]'>
+          <div className='min-h-[80vh]'>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
@@ -54,6 +54,7 @@ function App() {
               <Route path="/category/:id" element={<CategoryDescription />} />
             </Routes>
           </div>
+          
           <Footer />
         </BrowserRouter>
       </AuthProvider>

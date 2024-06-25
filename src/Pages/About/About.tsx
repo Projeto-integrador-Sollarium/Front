@@ -25,7 +25,7 @@ function Sobre(){
                         <h2 className='font-bold text-center text-4xl py-2'>Nossa Equipe!</h2>
                         <hr className="border-slate-950 rounded w-full"/>
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-                            <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center'>
+                            <div className='container mx-auto my-4 grid grid-cols-5 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center'>
                                 <div>
                                     <img src="https://media.licdn.com/dms/image/D4D03AQFtaIAziJSeZA/profile-displayphoto-shrink_800_800/0/1696206142141?e=1721260800&v=beta&t=pedvCzWqx_6B2ZdSal_cgSrP8OzosViFlSx0yDLBgKw" alt="Camilla" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3 className='text-bold'>Camilla</h3>
