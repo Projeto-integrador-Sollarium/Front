@@ -41,52 +41,50 @@ function Home() {
                         <img src={Home1} alt="Home1" className="rounded-lg w-9/12 " />
                     </div>
                        
-                </div>
-  
-                
+                </div>    
             </div>
             {/* Nosos Projetos - explicando cada um */}
             <div className=" container mx-auto px-4 flex justify-center min-h-8 py-10 m-5">
                 <div className="text-center w-full max-w-6xl">
-                    <h2 className='font-bold text-4xl text-green-700 py-6'>Conheça Nossos Projetos</h2>
-                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-10">
-                        <div className="text-center">
-                            <img src={imageR} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Projetos Comerciais</h3>
+                    <h2 className='font-bold text-4xl text-green-700 py-12'>Conheça Nossos Projetos</h2>
+                    <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-10">
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={imageR} alt="Rural" className="rounded-lg "/>
+                            <h3 className='font-bold text-xl py-4'>Projetos Comerciais</h3>
                             <p className='text-justify'>Painéis solares comerciais usam células fotovoltaicas para converter luz solar em eletricidade, reduzindo custos e aumentando a eficiência energética. São sistemas maiores que os residenciais, podendo incluir armazenamento de energia e inversores para corrente alternada. Além de cortar despesas operacionais, promovem sustentabilidade e imagem ambiental empresarial.</p>
                         </div>
-                        <div className="text-center">
-                            <img src={image2} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Projetos Residenciais</h3>
-                            <p className='text-justify'>Um painel solar residencial converte luz solar em eletricidade usando células fotovoltaicas de silício, que capturam e transformam a radiação solar em corrente elétrica. Essa energia pode ser usada imediatamente ou armazenada em baterias. A instalação reduz a conta de eletricidade, promove a sustentabilidade com energia limpa e pode valorizar o imóvel.</p>
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={image2} alt="Rural" className="rounded-lg"/>
+                            <h3 className='font-bold text-xl py-4'>Projetos Residenciais</h3>
+                            <p className='text-justify '>Um painel solar residencial converte luz solar em eletricidade usando células fotovoltaicas de silício, que capturam e transformam a radiação solar em corrente elétrica. Essa energia pode ser usada imediatamente ou armazenada em baterias. A instalação reduz a conta de eletricidade, promove a sustentabilidade com energia limpa e pode valorizar o imóvel.</p>
                         </div>
-                        <div className="text-center">
-                            <img src={image3} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Projetos Rurais</h3>
-                            <p className='text-justify'>Painéis solares rurais usam células fotovoltaicas para gerar eletricidade a partir da luz solar, fornecendo energia sustentável para áreas sem acesso à rede elétrica. Eles suportam necessidades agrícolas como bombas d'água e cercas elétricas, reduzindo custos e promovendo a sustentabilidade ambiental.</p>
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={image3} alt="Rural" className="rounded-lg "/>
+                            <h3 className='font-bold text-xl py-4'>Projetos Rurais</h3>
+                            <p className='text-justify '>Painéis solares rurais usam células fotovoltaicas para gerar eletricidade a partir da luz solar, fornecendo energia sustentável para áreas sem acesso à rede elétrica. Eles suportam necessidades agrícolas como bombas d'água e cercas elétricas, reduzindo custos e promovendo a sustentabilidade ambiental.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Nosos serviços - explicando cada um */}
-            <div className="container mx-auto px-4 flex justify-center  min-h-8 py-10">
+            <div className="container mx-auto px-4 flex justify-center  min-h-8 py-60">
                 <div className="text-center w-full max-w-6xl py-4">
-                    <h2 className='font-bold text-4xl text-green-700 py-4'>Nossos Serviços</h2>
+                    <h2 className='font-bold text-4xl text-green-700 py-12'>Nossos Serviços</h2>
                     <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-10">
-                        <div className="text-center">
-                            <img src={servico1} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Equipe</h3>
-                            <p className='text-justify'>Profissionais qualificados são essenciais para instalar e manter painéis solares eficientemente, garantindo montagem correta, conexão elétrica, integração e manutenções preventivas.</p>
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={servico1} alt="Rural" className="rounded-lg"/>
+                            <h3 className='font-bold text-xl py-4'>Equipe</h3>
+                            <p className='text-justify w-80 h-80 mx-auto mb-5'>Profissionais qualificados são essenciais para instalar e manter painéis solares eficientemente, garantindo montagem correta, conexão elétrica, integração e manutenções preventivas.</p>
                         </div>
-                        <div className="text-center">
-                            <img src={servico2} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Projeto Personalizado</h3>
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={servico2} alt="Rural" className="rounded-lg "/>
+                            <h3 className='font-bold text-xl py-4'>Projeto Personalizado</h3>
                             <p className='text-justify'>Cada projeto é único e 100% personalizado. Nossa equipe garante instalação segura e eficiente, adaptada às suas necessidades, maximizando o retorno sobre o investimento em energia solar.</p>
                         </div>
-                        <div className="text-center">
-                            <img src={servico3} alt="Rural" className="rounded-lg w-80 h-80 mx-auto mb-5"/>
-                            <h3 className='font-bold'>Energia Solar</h3>
+                        <div className="text-center w-80 h-80 mx-auto mb-5">
+                            <img src={servico3} alt="Rural" className="rounded-lg"/>
+                            <h3 className='font-bold text-xl py-4'>Energia Solar</h3>
                             <p className='text-justify'>Maximizamos o retorno sobre o investimento em energia solar, proporcionando eficiência e economia com uma solução limpa, renovável e inteligente.</p>
                         </div>
                     </div>
@@ -94,7 +92,7 @@ function Home() {
             </div>
 
             {/* Texto convidando para ver os produtos */}
-            <div className="container mx-auto px-4 flex justify-center items-center mt-10">
+            <div className="container mx-auto flex justify-center items-center">
                 <p className="text-center text-lg text-gray-800 font-bold font-serif">
                     Venha conhecer nossos produtos e descubra como podemos ajudá-lo(a) a adotar uma abordagem mais sustentável!
                 </p>
