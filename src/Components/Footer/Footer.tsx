@@ -30,10 +30,10 @@ function Footer() {
             </div>
           </div>
           
-          <nav className="flex flex-col lg:flex-row items-center lg:items-end lg:w-1/3">
+          <nav className="flex flex-col lg:flex-row items-center lg:items-end lg:w-1/3 ">
             <ul className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
               <li><a href="/" className="hover:text-gray-400">Home</a></li>
-              <li><a href="/Sobre" className="hover:text-gray-400">Sobre</a></li>
+              <li><a href="/sobre" className="hover:text-gray-400">Sobre</a></li>
               <li><a href="/TrabalheConosco" className="hover:text-gray-400">Trabalhe Conosco</a></li>
               <li><a href="/Contato" className="hover:text-gray-400">Contato</a></li>
             </ul>

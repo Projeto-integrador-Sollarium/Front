@@ -63,12 +63,12 @@ function CategoryDescription() {
             </div>
             {category !== null && (
                 <>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col px-4 sm:px-2 md:px-4 lg:px-8">
                         <div className="flex justify-center">
-                            <h1 className="text-4xl font-bold m-10">{category.name}</h1>
+                            <h1 className="text-4xl font-bold m-4 sm:m-2 md:m-6 lg:m-10">{category.name}</h1>
                         </div>
                         <div className="flex justify-center">
-                            <p className="text-center mt-2 mb-8 mr-12 ml-12 text-xl">{category.description}</p>
+                            <p className="text-center mt-2 mb-8 mx-4 sm:mx-2 md:mx-6 lg:mx-10 text-xl sm:text-lg md:text-xl">{category.description}</p>
                         </div>
                         {user.id === 1 && ( // Verifica se o usuário é o administrador
                             <div className="flex justify-center">

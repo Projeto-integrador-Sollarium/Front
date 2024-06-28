@@ -3,29 +3,30 @@ import equipe from '../../assets/Team.png';
 function Sobre(){
     return(
         <>
-            <div className="bg-neutral-950 flex justify-center">
-                <div className="container  grid grid-cols-2 text-white">
+            <div className="flex justify-center px-4">
+                <div className="container grid grid-cols-1 md:grid-cols-2 ">
                     <div className="flex flex-col gap-4 items-center justify-center py-4">
-                        <h2 className="text-8xl font-bold italic">Sobre Nós!</h2>
+                        <h2 className="text-7xl md:text-5xl lg:text-7xl font-bold text-green-700 italic">Sobre Nós!</h2>
                     </div>
-                    <div className="flex-grow justify-center">
-                        <img src={equipe} alt="" className="w-2/3" />
+                    <div className="flex justify-center py-4">
+                        <img src={equipe} alt="equipe" className="w-full md:w-2/3" />
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto py-10">
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div className="container mx-auto px-4 py-10">
+                <div className="gap-8">
                     <div>
-                            <p className="text-gray-800">
+                            <p className="text-gray-800 text-base md:text-lg text-justify">
                                 O Sollarium é uma plataforma comprometida em promover o acesso à energia limpa e sustentável por meio do comércio eletrônico. Nosso objetivo é facilitar a transição para fontes de energia renovável, contribuindo para a redução das emissões de carbono e o combate às mudanças climáticas.
                                 Atualmente, o mundo enfrenta uma crise climática sem precedentes, com as emissões de carbono atingindo níveis alarmantes. A dependência de combustíveis fósseis para geração de energia é uma das principais causas desse problema. O Sollarium surge como uma solução, oferecendo acesso fácil e conveniente a tecnologias e produtos de energia sustentável.
                             </p>
                     </div>
-                    <div className="justify-center py-10">
-                        <h2 className='font-bold text-center text-4xl py-2'>Nossa Equipe!</h2>
-                        <hr className="border-slate-950 rounded w-full"/>
-                        <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-                            <div className='container mx-auto my-4 grid grid-cols-5 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center'>
+            </div>
+                    <div className="flex flex-col items-center py-10">
+                        <h2 className='font-bold text-center text-green-700 text-4xl py-2'>Nossa Equipe!</h2>
+                        <hr className="border-slate-950 rounded w-full my-4"/>
+                        <div className="container mx-auto px-4">
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center'>
                                 <div>
                                     <img src="https://media.licdn.com/dms/image/D4D03AQFtaIAziJSeZA/profile-displayphoto-shrink_800_800/0/1696206142141?e=1721260800&v=beta&t=pedvCzWqx_6B2ZdSal_cgSrP8OzosViFlSx0yDLBgKw" alt="Camilla" className="rounded-full w-36 h-36 mx-auto mb-2"/>
                                     <h3 className='text-bold'>Camilla</h3>
@@ -72,7 +73,7 @@ function Sobre(){
 
                     
                 </div>
-            </div>
+            
         </>
     )
 }
