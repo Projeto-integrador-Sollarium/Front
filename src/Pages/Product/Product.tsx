@@ -5,7 +5,7 @@ import Product from '../../Models/Product';
 import { find } from '../../Services/Service';
 import { ColorRing } from 'react-loader-spinner';
 import Popup from 'reactjs-popup';
-import FormProduct from '../../Components/Products/FormProducts/FormProducts'; // Corrigindo o caminho de importação
+import FormProduct from '../../Components/Products/FormProducts/FormProducts'; 
 
 
 function ProductPage() {
@@ -24,7 +24,7 @@ function ProductPage() {
         category: null
     });
 
-    // State para controlar a abertura e fechamento do modal de edição
+    
     const [openEditModal, setOpenEditModal] = useState(false);
 
     async function findProductByID(id: string) {
@@ -39,7 +39,7 @@ function ProductPage() {
         navigate('/products');
     }
 
-    // Função para abrir o modal de edição
+    
     const openEditModalHandler = () => {
         setOpenEditModal(true);
     }
@@ -85,7 +85,7 @@ function ProductPage() {
                         {user.id === 1 ? (
                             <button
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                                onClick={openEditModalHandler} // Chama a função para abrir o modal de edição
+                                onClick={openEditModalHandler} 
                             >
                                 Editar
                             </button> ) : null }
@@ -124,7 +124,7 @@ function ProductPage() {
             </div>
         )}
 
-        {/* Modal de edição */}
+       
         <Popup open={openEditModal} onClose={() => setOpenEditModal(false)} modal>
             <FormProduct closeModal={() => setOpenEditModal(false)} initialProduct={product} />
         </Popup>

@@ -7,7 +7,6 @@ import ModalProducts from '../Products/ModalProducts/ModalProducts'
 import ModalCategories from '../Categorias/ModalCategories/ModalCategories'
 import FormLogin from '../Login/FormLogin/FormLogin'
 import Popup from 'reactjs-popup'
-import jorge from '../../assets/Jorge.png';
 import sol from '../../assets/solcomluz2.svg';
 
 function Navbar() {
@@ -58,7 +57,7 @@ function Navbar() {
 
             <div className='relative flex items-center justify-center'>
               <User
-                size={28}
+                size={30}
                 color='white'
                 weight='bold'
                 className='cursor-pointer'

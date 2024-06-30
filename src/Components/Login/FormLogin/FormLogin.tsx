@@ -33,12 +33,12 @@ function Login({ closeModal }: LoginProps) {
   function login(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     handleLogin(userLogin);
-    closeModal(); // Fechando o modal ao concluir o login
+    closeModal(); 
   }
 
   function handleRegisterClick() {
-    closeModal(); // Fecha o modal
-    navigate('/Register'); // Redireciona para a página de registro
+    closeModal(); 
+    navigate('/Register'); 
   }
 
   return (
@@ -87,9 +87,9 @@ function Login({ closeModal }: LoginProps) {
             Cadastre-se
           </span>
         </p>
-        {location.pathname === '/Categories' && ( // Condição para renderizar o botão apenas na página /categories
+        {location.pathname === '/Categories' && ( 
           <div className="flex justify-center">
-            {/* Adicionando um botão para voltar para a página inicial */}
+            
             <button onClick={() => navigate('/')} className="bg-gray-200 text-gray-800 rounded-md py-2 px-4 mt-2 hover:bg-gray-300 transition duration-300">
               Home
             </button>

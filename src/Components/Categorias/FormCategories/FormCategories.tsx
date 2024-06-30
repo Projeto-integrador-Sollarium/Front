@@ -13,7 +13,7 @@ interface FormCategoriesProps {
 function FormCategories({ closeModal, initialCategory }: FormCategoriesProps) {
   const [category, setCategory] = useState<Category>(initialCategory || {} as Category);
 
-  const navigate = useNavigate(); // Obtenha a função navigate do hook useNavigate
+  const navigate = useNavigate(); 
   const { id } = useParams<{ id: string }>();
   const { user, handleLogout } = useContext(AuthContext);
   const token = user.token;
@@ -52,7 +52,7 @@ function FormCategories({ closeModal, initialCategory }: FormCategoriesProps) {
 
         toastAlerta('Categoria atualizada com sucesso', 'sucesso');
         closeModal();
-        navigate('/categories'); // Redirecione para a página /categories após o sucesso
+        navigate('/categories'); 
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
@@ -73,7 +73,7 @@ function FormCategories({ closeModal, initialCategory }: FormCategoriesProps) {
 
         toastAlerta('Categoria cadastrada com sucesso', 'sucesso');
         closeModal();
-        navigate('/categories'); // Redirecione para a página /categories após o sucesso
+        navigate('/categories');
 
       } catch (error: any) {
         if (error.toString().includes('403')) {

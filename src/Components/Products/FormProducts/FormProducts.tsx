@@ -8,7 +8,7 @@ import { toastAlerta } from '../../../utils/toastAlerta';
 
 interface FormProductProps {
     closeModal: () => void;
-    initialProduct?: Product; // Atualizado
+    initialProduct?: Product; 
 }
 
 function FormProduct({ closeModal, initialProduct }: FormProductProps) {
@@ -107,7 +107,7 @@ function FormProduct({ closeModal, initialProduct }: FormProductProps) {
                     },
                 });
                 toastAlerta('O produto foi atualizado com sucesso', 'sucesso');
-                closeModal(); // Fechando o modal ao concluir a operação
+                closeModal(); 
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
@@ -126,7 +126,7 @@ function FormProduct({ closeModal, initialProduct }: FormProductProps) {
                 });
 
                 toastAlerta('Produto cadastrado com sucesso', 'sucesso');
-                closeModal(); // Fechando o modal ao concluir a operação
+                closeModal(); 
                 turnBack();
             } catch (error: any) {
                 if (error.toString().includes('403')) {

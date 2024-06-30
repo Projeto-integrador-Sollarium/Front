@@ -70,8 +70,8 @@ function Register() {
 
     } else {
       toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'info')
-      setUser({ ...user, password: "" }) // Reinicia o campo de Senha
-      setConfirmPassword("")                  // Reinicia o campo de Confirmar Senha
+      setUser({ ...user, password: "" }) 
+      setConfirmPassword("")                 
     }
   }
 
@@ -153,18 +153,7 @@ function Register() {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
                 </div>
-                {/* <div className="flex flex-col w-full">
-                    <label htmlFor="photo">Foto</label>
-                    <input
-                        type="text"
-                        id="photo"
-                        name="photo"
-                        placeholder="Photo"
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={user.photo}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
-                    />
-                </div> */}
+
                 <div className="flex justify-around w-full gap-8">
                     <button type='submit' className="rounded bg-cyan-500 hover:bg-cyan-900 text-white w-1/2 py-2 flex justify-center">
                         <span>Cadastrar</span>

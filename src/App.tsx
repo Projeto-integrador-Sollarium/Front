@@ -10,11 +10,10 @@ import Register from './Pages/Register/Register';
 
 import { AuthProvider } from './Contexts/AuthContext';
 
-import FormCategories from './Components/Categorias/FormCategories/FormCategories.tsx';
 import ListCategories from './Components/Categorias/ListaCategorias/ListCategories';
 import DeleteCategory from './Components/Categorias/DeleteCategory/DeleteCategory';
 import ListProducts from './Components/Products/ListProducts/ListProducts';
-import FormProduct from './Components/Products/FormProducts/FormProducts';
+
 import DeleteProduct from './Components/Products/DeleteProducts/DeleteProducts';
 import Cart from './Pages/Cart/Cart';
 import { Bounce, ToastContainer } from 'react-toastify';
@@ -22,7 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProductPage from './Pages/Product/Product';
 import CategoryDescription from './Pages/CategoryDescription/CategoryDescription.tsx';
 import NotFound from './Pages/NotFound/NotFount.tsx'
-
+import background from './assets/lilypads.png'
 
 function App() {
 
@@ -35,6 +34,7 @@ function App() {
       <ToastContainer/>
 
         <BrowserRouter>
+        <div style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'repeat' }}></div>
           <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>

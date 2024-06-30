@@ -7,7 +7,7 @@ import { toastAlerta } from '../../../utils/toastAlerta';
 
 function DeleteProduct() {
     const [product, setProduct] = useState<Product>({} as Product);
-    const [showConfirmation, setShowConfirmation] = useState(false); // Novo estado para controlar a exibição do pop-up
+    const [showConfirmation, setShowConfirmation] = useState(false); 
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
@@ -77,7 +77,7 @@ function DeleteProduct() {
                 </div>
             </div>
 
-            {showConfirmation && ( // Renderizar o pop-up de confirmação
+            {showConfirmation && ( 
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
                     <div className="bg-white p-8 rounded-lg">
                         <p className="text-xl mb-4">Tem certeza de que deseja excluir este produto?</p>

@@ -1,10 +1,10 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Category from "../../Models/Category";
 import { useContext, useEffect, useState } from "react";
-import { findLoggedOut, searchProducts } from '../../Services/Service'; // Importar a função find
+import { findLoggedOut, searchProducts } from '../../Services/Service'; 
 
-import { ColorRing } from 'react-loader-spinner'; // Importar o componente Color Ring
-import { toastAlerta } from '../../utils/toastAlerta'; // Importar a função toastAlerta
+import { ColorRing } from 'react-loader-spinner'; 
+import { toastAlerta } from '../../utils/toastAlerta'; 
 import Product from "../../Models/Product";
 import CardProduct from "../../Components/Products/CardProducts/CardProducts";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -13,7 +13,7 @@ import FormCategories from '../../Components/Categorias/FormCategories/FormCateg
 
 function CategoryDescription() {
     const { id } = useParams<{ id: string }>();
-    const [category, setCategory] = useState<Category | null>(null); // Ajuste da tipagem aqui
+    const [category, setCategory] = useState<Category | null>(null); 
     const [products, setProducts] = useState<Product[]>([]);
     let navigate = useNavigate();
     const { user } = useContext(AuthContext);
@@ -70,7 +70,7 @@ function CategoryDescription() {
                         <div className="flex justify-center">
                             <p className="text-center mt-2 mb-8 mx-4 sm:mx-2 md:mx-6 lg:mx-10 text-xl sm:text-lg md:text-xl">{category.description}</p>
                         </div>
-                        {user.id === 1 && ( // Verifica se o usuário é o administrador
+                        {user.id === 1 && ( 
                             <div className="flex justify-center">
                                 <button
                                     className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded m-5"
@@ -108,7 +108,7 @@ function CategoryDescription() {
                     </div>
                 </>
             )}
-            {/* Modal de edição */}
+            
             <Popup
                 open={openModal}
                 onClose={() => setOpenModal(false)}

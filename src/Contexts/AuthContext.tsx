@@ -69,7 +69,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const itemsQuantity = items.length
 
-    // Essa sintaxe guarda as info anteriores do State e atualiza com os novos dados(objetos)
     function addProduct(product: Product) {
         if(user.id === undefined){
             handleLogout
@@ -79,19 +78,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
         
     }
 
-    // Remove a quantidade de um produto especifico
+    
     function removeProduct(productId: number) {
         if(user.id === 0){
             handleLogout()
         }else{
-        // O findIndex() verifica se o ID do produto informado consta no Array, e pega a posição/indice desse item no Array
         const indice = items.findIndex(items => items.id === productId) 
-        let newCart = [...items]   // Faz uma cópia do Carrinho anterior, apenas como variavel auxiliar
+        let newCart = [...items]   
 
-        // Se o index é maior que 0, o método splice(), vai encontrar esse item no Array e o remover
+        
         if(indice >= 0){
             newCart.splice(indice, 1)
-            setItems(newCart)  // Atualiza o Carrinho
+            setItems(newCart)  
         }
     }
     }
