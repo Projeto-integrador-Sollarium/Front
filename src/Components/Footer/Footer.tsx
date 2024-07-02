@@ -21,9 +21,9 @@ function Footer() {
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                 <FacebookLogo size={32} weight="bold" />
               </a>
-              <a href="https://github.com/Projeto-integrador-Sollarium" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <Link to="/Projeto-integrador-Sollarium" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                 <GithubLogo size={32} weight="bold" />
-              </a>
+              </Link>
             </div>
 
             <div className="mt-4 text-center lg:text-left">
