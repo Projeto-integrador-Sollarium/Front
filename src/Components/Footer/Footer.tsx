@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { FacebookLogo, GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react';
 
 function Footer() {
@@ -9,7 +10,7 @@ function Footer() {
           <div className="mb-6 lg:mb-0 text-center lg:text-left">
             <h1 className="text-3xl font-bold">Sollarium Generation</h1>
             <p className="mt-2">&copy; {new Date().getFullYear()} Sollarium Generation. Todos os direitos reservados.</p>
-            
+
             <div className="flex justify-center lg:justify-start mt-4 space-x-4">
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                 <LinkedinLogo size={32} weight="bold" />
@@ -24,18 +25,18 @@ function Footer() {
                 <GithubLogo size={32} weight="bold" />
               </a>
             </div>
-            
+
             <div className="mt-4 text-center lg:text-left">
               <a href="/privacidade" className="hover:text-gray-400">Política de Privacidade</a>
             </div>
           </div>
-          
+
           <nav className="flex flex-col lg:flex-row items-center lg:items-end lg:w-1/3 ">
             <ul className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
-              <li><a href="/" className="hover:text-gray-400">Home</a></li>
-              <li><a href="/sobre" className="hover:text-gray-400">Sobre</a></li>
-              <li><a href="/TrabalheConosco" className="hover:text-gray-400">Trabalhe Conosco</a></li>
-              <li><a href="/Contato" className="hover:text-gray-400">Contato</a></li>
+              <li><Link to="/" className="hover:text-gray-400">Home</Link></li>
+              <li><Link to="/sobre" className="hover:text-gray-400">Sobre</Link></li>
+              <li><Link to="/TrabalheConosco" className="hover:text-gray-400">Trabalhe Conosco</Link></li>
+              <li><Link to="/Contato" className="hover:text-gray-400">Contato</Link></li>
             </ul>
           </nav>
         </div>
